@@ -14,7 +14,7 @@ Twitter hash tag: #cc2019
       - Time
       - Topic/Activity
       - Notes/Links
-    * - 03/06/18 (Wednesday)
+    * - 03/06/19 (Wednesday)
       - 8:30-9:00
       - General introduction to CyVerse and Camp logistics (Nirav Merchant & Upendra Devisetty)
       -
@@ -50,7 +50,7 @@ Twitter hash tag: #cc2019
       - 5:00-6:00
       - Catchup with instructors
       - 
-    * - 03/07/18 (Thursday)
+    * - 03/07/19 (Thursday)
       - 8:30-9:00
       - Recap and planning day 2
       -
@@ -74,7 +74,7 @@ Twitter hash tag: #cc2019
       - 2:00-5:00
       - Breakout sessions (Biocontainers/nvidia-docker/Docker-for-Datascience/Containerized-workflows)
       -
-    * - 03/08/18 (Friday)
+    * - 03/08/19 (Friday)
       - 8:30-9:00
       - Recap and planning day 3
       -
