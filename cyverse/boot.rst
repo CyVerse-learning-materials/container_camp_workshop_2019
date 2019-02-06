@@ -1,5 +1,5 @@
-**Booting an Atmosphere computer instance for your use!**
-=========================================================
+**Booting an Atmosphere instance**
+==================================
 
 What we're going to do here is walk through of how to start up a running
 computer (an "instance") on the CyVerse Atmosphere Cloud service.

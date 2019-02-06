@@ -32,7 +32,7 @@ Twitter hash tag: #cc2019
       -
     * -
       - 12:00-1:00
-      - Lunch break on your own
+      - Lunch break (on your own)
       -
     * - 
       - 1:00-2:30
@@ -60,20 +60,20 @@ Twitter hash tag: #cc2019
       -
     * -
       - 12:00-1:00
-      - Lunch break on your own
+      - Lunch break (on your own)
       -
     * - 
       - 1:00-1:30
       - Docker Container Orchestration (Nirav)
       -
     * - 
-      - 1:30-2:00
-      - Deployment on CyVerse (Upendra)
-      -
-    * - 
-      - 2:00-5:00
+      - 1:30-4:00
       - Breakout sessions (Biocontainers/nvidia-docker/Docker-for-Datascience/Containerized-workflows)
       -
+    * - 
+      - 4:00-5:00
+      - Mirror Lab tour
+      - https://mirrorlab.arizona.edu
     * - 03/08/18 (Friday)
       - 8:30-9:00
       - Recap and planning day 3
@@ -87,16 +87,16 @@ Twitter hash tag: #cc2019
       - Coffee break (15 min) and afternoon session planning
       - served in A127-29
     * - 
-      - 11:00-12:00 
-      - Container scaling on OSG and XSEDE (Mats/John)
+      - 1:00-2:30
+      - Singularity hands-on (Tyson)
       -
     * - 
       - 12:00-1:00
-      - Lunch on your own
+      - Lunch break (on your own)
       - 
     * - 
-      - 1:00-2:30
-      - Singularity hands-on (Tyson)
+      - 11:00-12:00 
+      - Container scaling on OSG and XSEDE (Mats/John)
       -
     * - 
       - 2:30-3:00

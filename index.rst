@@ -3,7 +3,7 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Container Camp Workshop
+   :caption: Getting Started
 
    getting_started/main
    getting_started/installation
@@ -17,12 +17,6 @@ Table of Contents
    topics/train_docker
    topics/train_singularity
    topics/breakout_session
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Atmosphere
-
-   atmosphere/boot
 
 .. toctree::
    :maxdepth: 1
@@ -40,9 +34,10 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Deploying
+   :caption: CyVerse Topics
 
-   deploying_apps/de_docker
+   cyverse/boot
+   cyverse/de_docker
 
 .. toctree::
    :maxdepth: 1
