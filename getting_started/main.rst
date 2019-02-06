@@ -4,19 +4,18 @@
 ============================
 
 All attendees, speakers, sponsors and volunteers at our workshop are required 
-to follow this code of conduct. Organisers will enforce this code 
-throughout the event. We expect cooperation from all participants to 
-help ensure a safe environment for everyone. 
+to follow this code of conduct. CyVerse expects and appreciates cooperation from all participants to 
+help ensure a safe, collaborative environment for everyone. 
 
 This Code of Conduct is taken from 
 http://confcodeofconduct.com/. See http://www.ashedryden.com/blog/codes-of-conduct-101-faq
 for more information on codes of conduct.
 
-**FAIR principles**
+**FAIR Data principles**
 
 Container Camp supports FAIR data principles by providing services that help make data 
 Findable, Accessible, Interoperable, and Reusable. Participants will get an introduction 
-to containers and learn how to create and manage containers.
+to containers and learn how to create and manage containers, enabling interoperability and reusability of data.
 
 **Learning objectives**
 
