@@ -30,7 +30,7 @@ Here are the basic steps for deploying Docker images as apps in DE. For this tut
 
 .. warning::
 
-	If you already have your own Docker image or Docker image of interest is hosted on public repositories (Dockerhub or quay.io or some other public repository), then you can skip to step 3 
+	If you already have your own Docker image or a Docker image of interest is already hosted on a public repository(s) (Dockerhub or quay.io or some other public repository), then you can skip to Step 3 
 
 .. _Build and test your Docker images:
 
@@ -63,7 +63,7 @@ All tools now run installed as Docker images in the DE. Once the software is doc
 
 .. warning::
 
-	Check if the tool and correct version are already installed in the DE by following the below steps.
+	Check if the tool and correct version are already installed in the DE by following the steps below.
 
 	- Log in to the Discovery Environment by going to https://de.cyverse.org/de/, entering your CyVerse username and password, and clicking LOGIN. If you have not already done so, you will need to sign up for a CyVerse account.
 	- Click the ``Apps`` window to open the Apps window.
@@ -87,7 +87,7 @@ If the tool is not available in DE then do the following:
 
 |img_building_1|
 
-- If there is no error, it indicates successful integration of the tool.
+- If there is no error message, you have successfully integrated the tool.
 
 .. _Create a UI for the tool in DE:
 
@@ -114,9 +114,9 @@ Here is an example of the ``Tensorflow image classifier - 1.0`` app UI in DE
 
 **5. Test the app using appropriate test data**
 
-After creating the new app according to your design, test your app in the your Apps under development folder in the DE using appropriate test data to make sure it works properly.
+After creating the new app according to your design, test your app in the Your Apps under development folder in the DE using appropriate test data to make sure it works properly.
 
-For testing, we'll use the the same image that we have used earlier.
+For testing, we'll use the the same image that we used earlier.
 
 |img_building_9|
 
@@ -132,7 +132,7 @@ For testing, we'll use the the same image that we have used earlier.
 
 |img_building_8|
 
-Congrats!!! It works. The image classifier correctly predicts that image is a daisy..
+Congrats!!! It works. The image classifier correctly predicts that the image is a daisy..
 
 - If your app works the way you expect it to you can share your app or make the app public
 - If your app doesn't work, then you may need to make changes to the app UI or you need to make changes to your Docker image. If you make changes to the Docker image, then you don't need to create a new app UI again as the Docker image updates will be propagated automatically.
