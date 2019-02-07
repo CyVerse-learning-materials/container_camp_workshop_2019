@@ -12,7 +12,7 @@ provide data storage, bioinformatics tools, image analyses, cloud
 services, APIs, and more.
 
 Originally created as the iPlant Collaborative to serve
-U.S. plant science communities, the cyberinfrastructure is germane
+U.S. plant science communities, the cyberinfrastructure we have built is germane
 to all life sciences disciplines and works equally well on data from
 plants, animals, or microbes. Thus, iPlant was renamed CyVerse to reflect the broader community now served by our infrastructure. By democratizing access to supercomputing
 capabilities, we provide a crucial resource to enable scientists to find
