@@ -17,7 +17,7 @@ Please complete the minimum Setup Instructions to prepare for the Container Camp
       - - `Download FireFox <https://www.mozilla.org/en-US/firefox/new/?scene=2>`_
         - `Download Chrome <https://www.google.com/chrome/browser/>`_
     * - CyVerse Account
-      - Please ensure that you have a CyVerse account and have **verfied** your account
+      - Please ensure that you have a CyVerse account and have **verified** your account
         by completing the verification steps in the email you got when you registered.
       - Register for your cyverse account at `http://user.cyverse.org/`_. You can **test your account** by logging into `http://user.cyverse.org/ <http://  user.cyverse.org/>`_.
     * - Github Account
