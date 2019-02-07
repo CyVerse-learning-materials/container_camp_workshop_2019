@@ -3,7 +3,7 @@
 
 **Coordinating Web site work**
 
-Please create a pull request as soon as you start editing something,
+Please create a pull request (PR) as soon as you start editing something,
 rather than waiting!  That way you can tell others what you're working on.
 
 You could/should also mention it on Slack in the "cc-leads" channel.
@@ -14,10 +14,10 @@ All the Container Camp workshop tutorials are stored on `GitHub <https://github.
 
 We will use `GitHub Flow <https://guides.github.com/introduction/flow/>`_ for updates: from the command line,
 
-	- fork container camp repository;
+	- fork the container camp repository;
 	- edit, change, add, etc;
 	- submit a PR;
-	- when ready to review & merge say 'ready for review & merge @cc2018'.
+	- when ready to review & merge, say 'ready for review & merge @cc2019'.
 
 It's important that all updates go through code review by
 someone. Anyone with push access to the repo can review and merge!
@@ -27,7 +27,7 @@ PR directly. You can also fork the repo, perform multiple edits and submit a PR 
 
 **Updating the "official" Web site.**
 
-The `Web site <https://cyverse-container-camp-workshop-2018.readthedocs-hosted.com/>`_, will update automatically
+The `Web site <https://cyverse-container-camp-workshop-2019.readthedocs-hosted.com/>`_, will update automatically
 from GitHub.  However, it may take 5-15 minutes to do so.
 
 **Building a local copy of the Web site.**
@@ -36,7 +36,7 @@ Briefly,
 
 - clone the repo:
 
-  ``git clone https://github.com/CyVerse-learning-materials/container_camp_workshop_2018.git``
+  ``git clone https://github.com/CyVerse-learning-materials/container_camp_workshop_2019.git``
 
 - set up a virtualenv with python2 or python3:
 
@@ -69,7 +69,7 @@ Files and images that don't need to be "compiled" and should just be
 served up through the web site can be put in the `_static`
 directory; their URL will then be
 
-    https://cyverse-container-camp-workshop-2018.readthedocs-hosted.com/_static/filename
+    https://cyverse-container-camp-workshop-2019.readthedocs-hosted.com/_static/filename
     
 **Images**
 
