@@ -1,11 +1,11 @@
 **Booting an Atmosphere instance**
 ==================================
 
-What we're going to do here is walk through of how to start up a running
-computer (an "instance") on the CyVerse Atmosphere Cloud service.
+In this session, we will walk through how to start up a running
+computer (an "instance") on the CyVerse Atmosphere Cloud service. 
 
 Below, we've provided screenshots of the whole process. You can click
-on them to zoom in a bit. The important areas to fill in are highlighted.
+on them to zoom in a bit. The important areas to fill in are highlighted. You will need to have Atmosphere access, as listed in your Pre-Workshop Instructions.
 
 First, go to the `Atmosphere <https://atmo.cyverse.org/application/images>`_ application and then click `login`
 
