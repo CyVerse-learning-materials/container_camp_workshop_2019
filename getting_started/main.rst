@@ -4,11 +4,10 @@
 ============================
 
 All attendees, speakers, sponsors and volunteers at our workshop are required 
-to follow this code of conduct. CyVerse expects and appreciates cooperation from all participants to 
+to follow this code of conduct: http://confcodeofconduct.com/. CyVerse expects and appreciates cooperation from all participants to 
 help ensure a safe, collaborative environment for everyone. 
 
-This Code of Conduct is taken from 
-http://confcodeofconduct.com/. See http://www.ashedryden.com/blog/codes-of-conduct-101-faq
+See http://www.ashedryden.com/blog/codes-of-conduct-101-faq
 for more information on codes of conduct.
 
 **FAIR Data principles**
