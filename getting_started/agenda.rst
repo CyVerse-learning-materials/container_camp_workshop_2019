@@ -68,7 +68,7 @@ Twitter hash tag: #cc2019
       -
     * - 
       - 1:00-1:30
-      - Docker Container Orchestration (Nirav)
+      - Docker Container Orchestration (Nirav Merchant)
       -
     * - 
       - 1:30-4:00
@@ -84,7 +84,7 @@ Twitter hash tag: #cc2019
       - 
     * - 03/08/19 (Friday)
       - 8:30-9:00
-      - Recap and planning day 3
+      - Review Day 2 (Questions, Comments)
       -
     * -
       - 9:00-9:30
@@ -100,7 +100,7 @@ Twitter hash tag: #cc2019
       - served in A127-29
     * -
       - 10:30-12:00
-      - Introduction to Singularity (Upendra)
+      - Introduction to Singularity (Upendra Devisetty)
       -
     * -
       - 12:00-1:00
@@ -108,7 +108,7 @@ Twitter hash tag: #cc2019
       -
     * - 
       - 1:00-2:30
-      - Advanced Singularity hands-on (Tyson)
+      - Advanced Singularity hands-on (Tyson Swetnam)
       -
     * - 
       - 2:30-3:00
