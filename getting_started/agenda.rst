@@ -72,11 +72,11 @@ Twitter hash tag: #cc2019
       -
     * - 
       - 1:30-4:00
-      - Breakout sessions (Biocontainers/nvidia-docker/Docker-for-Datascience/Containerized-workflows)
+      - Breakout sessions 
       -
     * - 
       - 4:00-5:00
-      - Mirror Lab tour
+      - Mirror Lab tour (optional)
       - https://mirrorlab.arizona.edu
     * - 
       - 5:00-6:00
