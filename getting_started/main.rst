@@ -1,6 +1,6 @@
 |CyVerse logo|
 
-**Workshop Code of Conduct**
+**Workshop Code of Conduct and Other Information**
 ============================
 
 All attendees, speakers, staff and volunteers at Container Camp are required 
