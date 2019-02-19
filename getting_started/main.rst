@@ -43,7 +43,7 @@ analysis from laptop to cloud and to HPC systems using containers.
 
 **Container Camp Goes Green**
 
-This year, we encourage all Container Camp participants to help minimize our waste footprint. If possible, bring your own reusable beverage containers, such as coffee mugs and water bottles, to use during snack breaks. (Note: we did consider providing camp swag, like a **CyVerse-branded beverage container**, but felt it would likely end up at your next yard sale.) 
+This year, we encourage all Container Camp participants to help minimize our waste footprint. If possible, bring your own reusable beverage containers, such as coffee mugs and water bottles, to use during snack breaks. Thanks in advance!
 
 **Who should attend?**
 
