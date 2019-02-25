@@ -1,14 +1,27 @@
 |CyVerse logo|
 
-**Workshop Code of Conduct**
+**Workshop Code of Conduct and Other Information**
 ============================
 
-All attendees, speakers, sponsors and volunteers at our workshop are required 
-to follow this code of conduct. CyVerse expects and appreciates cooperation from all participants to 
+All attendees, speakers, staff and volunteers at Container Camp are required 
+to follow this code of conduct (based on this http://confcodeofconduct.com/). CyVerse expects and appreciates cooperation from all participants to 
 help ensure a safe, collaborative environment for everyone. 
 
-This Code of Conduct is taken from 
-http://confcodeofconduct.com/. See http://www.ashedryden.com/blog/codes-of-conduct-101-faq
+Harassment includes offensive verbal comments related to gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion, technology choices, sexual images in public spaces, deliberate intimidation, stalking, following, harassing photography or recording, sustained disruption of talks or other events, inappropriate physical contact, and unwelcome sexual attention.
+
+Participants who are asked to stop any harassing behavior are expected to comply immediately.
+
+Workshop staff are also subject to the anti-harassment policy. In particular, staff should not use sexualised images, activities, or other material. 
+
+If a participant engages in harassing behavior, the workshop organisers may take any action they deem appropriate, including warning the offender or expulsion from the workshop with no refund.
+
+If you are being harassed, or notice that someone else is being harassed, or have any other concerns, please contact a member of the workshop staff immediately. Staff can be identified as they'll be wearing badges or nametags.
+
+Workshop staff will be happy to help participants contact hotel/venue security or local law enforcement, provide escorts, or otherwise assist those experiencing harassment to feel safe for the duration of the workshop. We value your attendance.
+
+We expect participants to follow these rules at conference and workshop venues and conference-related social events.
+
+See http://www.ashedryden.com/blog/codes-of-conduct-101-faq
 for more information on codes of conduct.
 
 **FAIR Data principles**
@@ -27,6 +40,10 @@ The workshop will cover key concepts about containers such as defining the
 architecture of containers, building images and pushing them to 
 public and private repositories as well as how to scale your 
 analysis from laptop to cloud and to HPC systems using containers. 
+
+**Container Camp Goes Green**
+
+This year, we encourage all Container Camp participants to help minimize our waste footprint. If possible, bring your own reusable beverage containers, such as coffee mugs and water bottles, to use during snack breaks. Thanks in advance!
 
 **Who should attend?**
 

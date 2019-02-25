@@ -28,7 +28,7 @@ Twitter hash tag: #cc2019
       - served in A127-29 across the hall (pls no food/bev in A116)
     * - 
       - 9:45-11:00
-      - Introduction to Docker (Julian)
+      - Introduction to Docker (Julian Pistorius)
       -
     * -
       - 12:00-1:00
@@ -36,7 +36,7 @@ Twitter hash tag: #cc2019
       -
     * - 
       - 1:00-2:30
-      - Docker hands-on exercises (Tyson)
+      - Docker hands-on exercises (CK Chan)
       -
     * - 
       - 2:30-3:00
@@ -44,59 +44,71 @@ Twitter hash tag: #cc2019
       - served in A127-29
     * - 
       - 3:00-5:00
-      - Advanced Docker (Upendra)
+      - Advanced Docker hands on (Tyson Swetnam)
       -
     * - 
       - 5:00-6:00
-      - Catchup with instructors
+      - Debriefing with instructors
       - 
     * - 03/07/19 (Thursday)
       - 8:30-9:00
-      - Recap and planning day 2
+      - Containers Example use case in Astronomy lecture (CK Chan)
+      -
+    * - 
+      - 9:00-9:30 
+      - Review Day 1 (Questions, Comments)
       -
     * -
-      - 9:00-12:00
+      - 9:30-12:00
       - BYOD/BYOA (Individual projects)
       -
     * -
       - 12:00-1:00
-      - Lunch break (on your own)
+      - Lunch Break (on your own)
       -
     * - 
       - 1:00-1:30
-      - Docker Container Orchestration (Nirav)
+      - Docker Container Orchestration (Nirav Merchant)
       -
     * - 
       - 1:30-4:00
-      - Breakout sessions (Biocontainers/nvidia-docker/Docker-for-Datascience/Containerized-workflows)
+      - Breakout sessions 
       -
     * - 
       - 4:00-5:00
-      - Mirror Lab tour
+      - Mirror Lab tour (optional)
       - https://mirrorlab.arizona.edu
+    * - 
+      - 5:00-6:00
+      - Debriefing with instructors
+      - 
     * - 03/08/19 (Friday)
       - 8:30-9:00
-      - Recap and planning day 3
+      - Review Day 2 (Questions, Comments)
       -
     * -
-      - 9:00-10:30
-      - Introduction to Singularity/Singularityhub - Remote presentation (Vanessa/Godlove)
+      - 9:00-9:30
+      - SyLabs - Remote presentation (Vanessa/Godlove)
+      -
+    * - 
+      - 9:30-10:00
+      - 500k containers a day - Remote Presentation (Mats Rynge)
       -
     * -
-      - 10:30-11:00
-      - Coffee break (15 min) and afternoon session planning
+      - 10:00-10:30
+      - Coffee Break
       - served in A127-29
+    * -
+      - 10:30-12:00
+      - Introduction to Singularity (Upendra Devisetty)
+      -
+    * -
+      - 12:00-1:00
+      - Lunch Break (on your own)
+      -
     * - 
       - 1:00-2:30
-      - Singularity hands-on (Tyson)
-      -
-    * - 
-      - 12:00-1:00
-      - Lunch break (on your own)
-      - 
-    * - 
-      - 11:00-12:00 
-      - Container scaling on OSG and XSEDE (Mats/John)
+      - Advanced Singularity hands-on (Tyson Swetnam)
       -
     * - 
       - 2:30-3:00
