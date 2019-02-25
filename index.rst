@@ -34,6 +34,15 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 1
+   :caption: Breakout Sessions
+
+   breakout/biocontainers
+   breakout/nvidia-docker
+   breakout/workflows
+   breakout/datascience
+
+.. toctree::
+   :maxdepth: 1
    :caption: CyVerse Topics
 
    cyverse/boot
