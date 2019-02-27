@@ -14,7 +14,7 @@ There are no specific skills needed beyond a basic comfort with the command line
       
      `Singularity Related Resources for the Workshop <https://cyverse-container-camp-workshop-2019.readthedocs-hosted.com/en/latest/useful_resources/usefulresources_singularity.html>`_
  
- Key Differences:
+   Key Differences:
  
       **Docker**:
       
@@ -26,9 +26,9 @@ There are no specific skills needed beyond a basic comfort with the command line
       * User only has root privileges if elevated with `sudo` when container is run
       * Can run (and modify!) existing Docker images and containers
 
-These key differences allow Singularity to be installed on most HPC centers. Because you can run virtually all Docker containers in Singularity, you can effectively run Docker on an HPC. 
+  These key differences allow Singularity to be installed on most HPC centers. Because you can run virtually all Docker containers in Singularity, you can effectively run Docker on an HPC. 
 
-Singularity uses a 'flow' whereby you can (1) create and modify images on your dev system, (2) build containers using recipes or pulling from repositories, and (3) execute containers on production systems. 
+Singularity uses a 'flow' whereby you (1) create and modify images on your dev system, (2) build containers using recipes or pulling from repositories, and (3) execute containers on production systems. 
 
 |singularityflow|
 
@@ -806,4 +806,4 @@ Now, overlay your blank image file name with the container you just downloaded.
   :width: 200
 
 .. |singularityflow| image:: http://singularity.lbl.gov/assets/img/diagram/singularity-2.4-flow.png
-  :height: 600
+  :width: 800
