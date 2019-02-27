@@ -38,6 +38,7 @@ Some example of public/private registries include:
 - `Azure Container Registry <https://azure.microsoft.com/en-us/services/container-registry/>`_
 - `NVIDIA GPU Cloud <https://ngc.nvidia.com/catalog/containers>`_
 - `Private Docker Registry <https://private-docker-registry.com/>`_ - not official Docker
+- `Gitlab Container Registry <https://docs.gitlab.com/ce/administration/container_registry.html>`_
 - `CoreOS Quay <https://quay.io/>`_
 - `TreeScale <https://treescale.com/>`_
 - `Canister <https://www.canister.io/>`_
