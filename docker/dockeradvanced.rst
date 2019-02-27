@@ -11,7 +11,7 @@ Now that we are *relatively* comfortable with Docker, lets look at some advanced
 1. Docker Registries
 ====================
 
-To demonstrate the portability of what we just created, let’s upload our built Docker image and run it somewhere else (i.e. `CyVerse Atmosphere <https://atmo.cyverse.org>`). After all, you’ll need to learn how to push to registries when you want to deploy containers to production.
+To demonstrate the portability of what we just created, let’s upload our built Docker image and run it somewhere else (i.e. `CyVerse Atmosphere <https://atmo.cyverse.org>`_). After all, you’ll need to learn how to push to registries when you want to deploy containers to production.
 
 .. important::
 
@@ -26,10 +26,21 @@ There are several things you can do with Docker registries:
 - Pulling images
 - Sharing images
 
-1.1 Public repositories 
+1.1 Popular Registries
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Some example of public registries include `Docker Cloud <https://cloud.docker.com/>`_, `DockerHub <https://hub.docker.com/>`_ and `quay.io <https://quay.io/>`_.
+Some example of public/private registries include:
+
+- `Docker Cloud <https://cloud.docker.com/>`_
+- `Docker Hub <https://hub.docker.com/>`_ 
+- `Amazon Elastic Container Registry <https://aws.amazon.com/ecr/>`_
+- `Google Container Registry <https://aws.amazon.com/ecr/>`_
+- `Azure Container Registry <https://azure.microsoft.com/en-us/services/container-registry/>`_
+- `NVIDIA GPU Cloud <https://ngc.nvidia.com/catalog/containers>`_
+- `Private Docker Registry <https://private-docker-registry.com/>`_ - not official Docker
+- `CoreOSE Quay <https://quay.io/>`_
+- `TreeScale <https://treescale.com/>`_
+- `Canister <https://www.canister.io/>`_
 
 1.1.1 Log in with your Docker ID
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
