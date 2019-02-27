@@ -1,18 +1,23 @@
 **Advanced Docker**
 -------------------
 
-Now that we are relatively comfortable with Docker basics, lets look at some of the advanced Docker topics such as porting the Docker image to repositories (public and private), managing data in containers and finally deploy containers into cloud and other infrastructures etc.,
+Now that we are *relatively* comfortable with Docker, lets look at some advanced Docker topics, such as: 
 
-1. Docker registries
+- Registry
+- Porting a Docker image to a Repository (public and private) 
+- Managing data within containers 
+- Deploying containers on cloud services
+
+1. Docker Registries
 ====================
 
-To demonstrate the portability of what we just created, let’s upload our built Docker image and run it somewhere else (Atmosphere cloud). After all, you’ll need to learn how to push to registries when you want to deploy containers to production.
+To demonstrate the portability of what we just created, let’s upload our built Docker image and run it somewhere else (i.e. `CyVerse Atmosphere <https://atmo.cyverse.org>`). After all, you’ll need to learn how to push to registries when you want to deploy containers to production.
 
 .. important::
 
-	So what exactly is a registry?
+	So what *EXACTLY* is a **Registry**?
 
-	A registry is a collection of repositories, and a repository is a collection of images—sort of like a GitHub repository, except the code is already built. An account on a registry can create many repositories. The docker CLI uses Docker’s public registry by default. You can even set up your own private registry using Docker Trusted Registry
+	A registry is a collection of Repositories, and a Repository is a collection of Images. A Docker Registry is sort of like a GitHub Repository, except the code is already compiled, in this case, into a container. You must have an account on a registry. You can create many repositories. The Docker CLI uses Docker’s public registry by default. You can even set up your own private registry using Docker Trusted Registry
 
 There are several things you can do with Docker registries:
 
@@ -24,7 +29,7 @@ There are several things you can do with Docker registries:
 1.1 Public repositories 
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Some example of public registries include `Docker cloud <https://cloud.docker.com/>`_, `Docker hub <https://hub.docker.com/>`_ and `quay.io <https://quay.io/>`_.
+Some example of public registries include `Docker Cloud <https://cloud.docker.com/>`_, `DockerHub <https://hub.docker.com/>`_ and `quay.io <https://quay.io/>`_.
 
 1.1.1 Log in with your Docker ID
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
