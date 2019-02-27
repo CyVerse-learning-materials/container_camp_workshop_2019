@@ -10,9 +10,7 @@ There are no specific skills needed beyond a basic comfort with the command line
 
 .. Note:: 
       
-      *Important*: Singularity works together with Docker, but they have distinct differences. 
-      
-     `Singularity Related Resources for the Workshop <https://cyverse-container-camp-workshop-2019.readthedocs-hosted.com/en/latest/useful_resources/usefulresources_singularity.html>`_
+      *Important*: `Singularity is compatible with Docker <https://www.sylabs.io/2018/04/singularity-compatibility-with-docker-containers/>`_, but they do have distinct differences. 
  
    Key Differences:
  
@@ -779,6 +777,10 @@ When Singularity creates the new file system inside a container it ignores direc
 	$ singularity shell --bind /xdisk ubuntu14.simg
 	
 The system administrator can also define what is added to a container. This is important on campus HPC systems that often have a `/scratch` or `/xdisk` directory structure. By editing the `/etc/singularity/singularity.conf` a new path can be added to the system containers.
+
+.. Note::
+
+   `Singularity Related Resources for the Workshop <https://cyverse-container-camp-workshop-2019.readthedocs-hosted.com/en/latest/useful_resources/usefulresources_singularity.html>`_
 
 5.8 Overlay
 ~~~~~~~~~~~
