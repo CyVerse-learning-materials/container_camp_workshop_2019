@@ -165,6 +165,7 @@ You can use the `pull` command to download pre-built images from a number of Con
 
 Container Registries: 
 
+* `library` - images hosted on Sylabs Cloud
 * `shub` - images hosted on Singularity Hub
 * `docker` - images hosted on Docker Hub
 * `localimage` - images saved on your machine
