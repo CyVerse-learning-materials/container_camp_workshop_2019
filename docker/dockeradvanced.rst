@@ -33,7 +33,7 @@ Some example of public/private registries include:
 
 - `Docker Cloud <https://cloud.docker.com/>`_
 - `Docker Hub <https://hub.docker.com/>`_ 
-- `Docker Trusted Registry <https://docs.docker.com/datacenter/dtr/2.4/guides/>`_
+- `Docker Trusted Registry <https://docs.docker.com/ee/dtr/>`_
 - `Amazon Elastic Container Registry <https://aws.amazon.com/ecr/>`_
 - `Google Container Registry <https://aws.amazon.com/ecr/>`_
 - `Azure Container Registry <https://azure.microsoft.com/en-us/services/container-registry/>`_
