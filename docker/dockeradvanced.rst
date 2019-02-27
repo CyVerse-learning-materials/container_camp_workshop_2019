@@ -38,12 +38,12 @@ Some example of public/private registries include:
 - `Azure Container Registry <https://azure.microsoft.com/en-us/services/container-registry/>`_
 - `NVIDIA GPU Cloud <https://ngc.nvidia.com/catalog/containers>`_
 - `Private Docker Registry <https://private-docker-registry.com/>`_ - not official Docker
-- `CoreOSE Quay <https://quay.io/>`_
+- `CoreOS Quay <https://quay.io/>`_
 - `TreeScale <https://treescale.com/>`_
 - `Canister <https://www.canister.io/>`_
 
-1.1.1 Log in with your Docker ID
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1.1.1 Log into a Registry with your Docker ID
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now that you've created and tested your image, you can push it to Docker cloud or Docker hub.
 
