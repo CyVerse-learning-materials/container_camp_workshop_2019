@@ -6,24 +6,27 @@
 1. Prerequisites
 ================
 
-There are no specific skills needed for this tutorial beyond a basic comfort with the command line and using a text editor. Prior experience developing web applications could be helpful but is not required.
+There are no specific skills needed beyond a basic comfort with the command line and using a text editor. Prior experience installing Linux applications could be helpful but is not required.
 
 .. Note:: 
       
-      *Important*: Docker and Singularity are `friends <http://singularity.lbl.gov/docs-docker>`_ but they have distinct differences. 
+      *Important*: Singularity works together with Docker, but they have distinct differences. 
       
-     `Singularity Related Resources <https://cyverse-container-camp-workshop-2018.readthedocs-hosted.com/en/latest/useful_resources/usefulresources_singularity.html>`_
-      
+     `Singularity Related Resources for the Workshop <https://cyverse-container-camp-workshop-2019.readthedocs-hosted.com/en/latest/useful_resources/usefulresources_singularity.html>`_
+ 
+ Key Differences:
+ 
       **Docker**:
       
-      * Inside a Docker container the user has escalated privileges, effectively making them root on the host system. This is not supported by most administrators of High Performance Computing (HPC) centers.
+      * Inside a Docker container the user has escalated privileges, effectively making them `root` on that host system. This privilege is not supported by *most* administrators of High Performance Computing (HPC) centers. Meaning that Docker is not, and will likely never be, installed natively on your HPC.
       
       **Singularity**:
-     
-      * Work on HPC
-      * Same user inside and outside the container
-      * User only has root privileges if elevated with `sudo`
-      * Run (and modify!) existing Docker containers
+         
+      * Same user inside as outside the container
+      * User only has root privileges if elevated with `sudo` when container is run
+      * Can run (and modify!) existing Docker images and containers
+
+These key differences allow Singularity to be installed on most HPC centers. Because you can run virtually all Docker containers in Singularity, you can effectively run Docker on an HPC. 
 
 Singularity uses a 'flow' whereby you can (1) create and modify images on your dev system, (2) build containers using recipes or pulling from repositories, and (3) execute containers on production systems. 
 
@@ -32,7 +35,7 @@ Singularity uses a 'flow' whereby you can (1) create and modify images on your d
 2. Singularity Installation
 ===========================
 
-Singularity homepage: `https://www.sylabs.io/docs/ <https://www.sylabs.io/docs/>`_
+Sylabs Singularity homepage: `https://www.sylabs.io/docs/ <https://www.sylabs.io/docs/>`_
 
 While Singularity is more likely to be used on a remote system, e.g. HPC or cloud, you may want to develop your own containers first on a local machine or dev system. 
 
