@@ -76,7 +76,7 @@ Twitter hash tag: #cc2019
       -
     * - 
       - 4:00-5:00
-      - Mirror Lab tour (optional)
+      - Optional: Mirror Lab tour or UA HPC Facility tour
       - https://mirrorlab.arizona.edu
     * - 
       - 5:00-6:00
