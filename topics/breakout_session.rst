@@ -7,13 +7,13 @@
 
 	In this breakout session, you'll learn about Biocontainers and apply what you've learned about basic container technology, such as Docker, with open source bioinformatics apps for Proteomics, Genomics, Transcriptomics, and Metabolomics.
 
-2. **nvidi-docker** - Lead: Tyson Swetnam, CyVerse Scientific Analyst
+2. **NVIDIA-Docker** - Lead: Tyson Swetnam, CyVerse Scientific Analyst
 
 	`nvidia docker breakout session content <../breakout/nvidia-docker.html>`_
 
 	In this breakout session, you'll learn about NVIDIA GPU Cloud, and how to use NVIDIA-based containers in Docker and Singularity. 
 	NVIDIA GPUs are widely used for 3D modelling and Machine Learning applications. We will discuss the complexities of working with these different container types, with hands on examples running CyVerse and HPC.
-
+	
 3. **Containerized workflows** - Lead: Sateesh Peri, CyVerse power user, University of Nevada-Reno
 
 	`Containerized workflows breakout session content <../breakout/workflows.html>`_
