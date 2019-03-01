@@ -14,7 +14,7 @@
 
 	In this breakout session, you'll learn about NVIDIA GPU Cloud, and how to use NVIDIA-based containers in Docker and Singularity. 
 	
-	NVIDIA GPUs are widely used for 3D modelling and Machine Learning applications. We will discuss the complexities of working with these different container types, with hands on examples running CyVerse and HPC.
+	NVIDIA GPUs are widely used for 3D modelling and Machine Learning applications. We will discuss the complexities of working with these different container types, with hands on examples running on CyVerse and HPC.
 
 
 3. **Containerized workflows** - Lead: Sateesh Peri, CyVerse power user, University of Nevada-Reno
