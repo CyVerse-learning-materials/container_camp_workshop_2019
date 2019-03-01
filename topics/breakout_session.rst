@@ -8,7 +8,7 @@
 	In this breakout session, you'll learn about Biocontainers and apply what you've learned about basic container technology, such as Docker, with open source bioinformatics apps for Proteomics, Genomics, Transcriptomics, and Metabolomics.
 
 
-2. **nvidi-docker** - Lead: Tyson Swetnam, CyVerse Scientific Analyst
+2. **NVIDIA-Docker** - Lead: Tyson Swetnam, CyVerse Scientific Analyst
 
 	`nvidi-docker breakout session content <../breakout/nvidia-docker.html>`_
 
