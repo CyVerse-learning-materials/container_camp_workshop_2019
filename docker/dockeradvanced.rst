@@ -845,63 +845,48 @@ Exercise 2 (10 mins)
 
 .. |docker_image| image:: ../img/docker_image.png
   :width: 500
-  :height: 450 
 
 .. |private_registry| image:: ../img/private_registry.png
   :width: 500
-  :height: 450 
 
 .. |create_repo| image:: ../img/create_repo.png
-  :width: 500
-  :height: 450 
+  :width: 500 
 
 .. |create_repo2| image:: ../img/create_repo2.png
-  :width: 500
-  :height: 450 
+  :width: 500 
 
 .. |auto_build-1| image:: ../img/auto_build-1.png
   :width: 500
-  :height: 450 
 
 .. |auto_build-2| image:: ../img/auto_build-2.png
   :width: 500
-  :height: 450 
 
 .. |auto_build-2.1| image:: ../img/auto_build-2.1.png
   :width: 500
-  :height: 450 
 
 .. |auto_build-3| image:: ../img/auto_build-3.png
   :width: 500
-  :height: 450 
 
 .. |auto_build-4| image:: ../img/auto_build-4.png
   :width: 500
-  :height: 450 
 
 .. |auto_build-5| image:: ../img/auto_build-5.png
   :width: 500
-  :height: 450 
 
 .. |auto_build-6| image:: ../img/auto_build-6.png
   :width: 500
-  :height: 450 
 
 .. |auto_build-7| image:: ../img/auto_build-7.png
   :width: 500
-  :height: 450 
 
 .. |volumes| image:: ../img/volumes.png
   :width: 500
-  :height: 450 
 
 .. |bind_mount| image:: ../img/bind_mount.png
   :width: 500
-  :height: 450 
 
 .. |tmpfs| image:: ../img/tmpfs.png
   :width: 500
-  :height: 450 
 
 .. |docker-compose| image:: ../img/dc-1.png
   :width: 500
@@ -909,36 +894,27 @@ Exercise 2 (10 mins)
 
 .. |jn_ss| image:: ../img/jn_ss.png
   :width: 500
-  :height: 450 
 
 .. |jn_login| image:: ../img/jn_login.png
   :width: 500
-  :height: 450 
 
 .. |jn_login2| image:: ../img/jn_login2.png
   :width: 500
-  :height: 450 
 
 .. |jn_login3.5| image:: ../img/jn_login3.5.png
   :width: 500
-  :height: 450 
 
 .. |jn_login3| image:: ../img/jn_login3.png
   :width: 500
-  :height: 450 
-
+ 
 .. |jn_login4| image:: ../img/jn_login4.png
   :width: 500
-  :height: 450 
 
 .. |rstudio_ss| image:: ../img/rstudio_ss.png
   :width: 500
-  :height: 450 
 
 .. |rstudio_login2| image:: ../img/rstudio_login2.png
   :width: 500
-  :height: 450 
-
+ 
 .. |rstudio_login| image:: ../img/rstudio_login.png
   :width: 500
-  :height: 450 

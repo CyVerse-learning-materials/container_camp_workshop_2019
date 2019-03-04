@@ -75,5 +75,4 @@ Expected outcomes:
    instructions_reporting/problems
 
 .. |cc-main| image:: ./img/cc-main.png
-  :width: 700
-  :height: 400
+  :width: 800
