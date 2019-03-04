@@ -27,9 +27,9 @@ Registry
 
 NVIDIA GPU Cloud hosts three `registry spaces <https://docs.nvidia.com/ngc/ngc-user-guide/ngc-spaces.html#ngc-spaces>`_
 
-`nvcr.io/nvidia` - catalog of fully integrated and optimized deep learning framework containers.
-`nvcr.io/nvidia-hpcvis` - catalog of HPC visualization containers (beta).
-`nvcr.io/hpc` -  popular third-party GPU ready HPC application containers.
+  * `nvcr.io/nvidia` - catalog of fully integrated and optimized deep learning framework containers.
+  * `nvcr.io/nvidia-hpcvis` - catalog of HPC visualization containers (beta).
+  * `nvcr.io/hpc` -  popular third-party GPU ready HPC application containers.
 
 Running NVIDIA Docker with Singularity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
