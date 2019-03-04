@@ -1,36 +1,34 @@
 **Deploying apps in Discovery Environment**
 -------------------------------------------
 
-The CyVerse Discovery Environment (DE) provides a simple yet powerful web portal for managing data, analyses, and workflows. The DE uses containers (via Docker and Singularity through Agave) to support customizable, non-interactive, reproducible workflows using data stored in the CyVerse Data Store, based on iRODS. Agave is a "Science-as-a-Service" API platform for high-performance computing (HPC), high-throughput computing (HTC) and big-data resources.
+The CyVerse `Discovery Environment (DE) <https://de.cyverse.org>`_ provides a simple yet powerful web portal for managing data, analyses, and workflows. The DE uses containers (both Docker and Singularity) to support customizable, non-interactive, interactive reproducible workflows using data stored in the CyVerse Data Store.
 
 Deploying Docker images as apps in DE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Instruction guide: This paper will guide you to bring your dockerized tools into CyVerse DE. 
-
-https://f1000research.com/articles/5-1442/v3
+Instruction guide: This `paper <https://f1000research.com/articles/5-1442/v3>`_ will guide you to bring your dockerized tools into CyVerse DE. 
 
 |f1000|
 
-.. Note::
+.. Important ::
 
 	Significant changes have been made as to how you can bring your tools into DE and so we are working on a separate paper that will show all those changes. Meanwhile you can follow the below tutorial for integrating your tools.
 
-Here are the basic steps for deploying Docker images as apps in DE. For this tutorial I am going to show an example of Tensor image classifier docker image that I dockerized and pushed to dockerhub.
+Here are the basic steps for deploying Docker images as apps in DE. For this tutorial I am going to show an example of `Tensor image classifier <https://github.com/upendrak/tensorflow_image_classifier>`_
 
 - `Build and test your Docker images`_
 
-- `Push your Docker image to public repositories`_
+- `Push your Docker image to Dockerhub`_
 
 - `Add Docker images as tool in DE`_
 
-- `Create a UI for the tool in DE`_
+- `Create a App UI for the tool in DE`_
 
-- `Test the app using appropriate test data`_
+- `Test the app using appropriate test data in DE`_
 
 .. warning::
 
-	If you already have your own Docker image or a Docker image of interest is already hosted on a public repository(s) (Dockerhub or quay.io or some other public repository), then you can skip to Step 3 
+	If you already have your own Docker image or a Docker image of interest is already hosted on a public registry(s) (Dockerhub or quay.io or some other public repository), then you can skip to Step 3 
 
 .. _Build and test your Docker images:
 
@@ -38,20 +36,37 @@ Here are the basic steps for deploying Docker images as apps in DE. For this tut
 
 The first step is to dockerize your tool or software of interest. Detailed steps of how to dockerize your tool and test your dockerized images can be found in sections `intro to docker <../docker/dockerintro.html>`_ and `advanced docker <../docker/dockeradvanced.html>`_. 
 
-For this tutorial I will use the ``tensorflow image classifier`` docker image that I built using this `code <https://github.com/upendrak/tensorflow_image_classifier>`_
+For this tutorial I will use the ``tensorflow image classifier`` docker image that I built using this `code <https://github.com/upendrak/tensorflow_image_classifier>`_. 
 
-Testing 
+**Building the Docker image from the Dockerfile**
+
+.. code-block:: bash
+	
+	$ git clone https://github.com/upendrak/tensorflow_image_classifier && cd tensorflow_image_classifier
+
+	$ docker build -t tensorflow_up:1.0 .
+
+**Testing Docker image with test data**
 
 .. code-block:: bash
 
-	docker run -v $(pwd):/data -w /data tensorflow_up:1.0 sample_data/16401288243_36112bd52f_m.jpg
+	$ docker run --rm -v $(pwd):/data -w /data tensorflow_up:1.0 sample_data/16401288243_36112bd52f_m.jpg
 
+This generates a file called `16401288243_36112bd52f_m.out` that consits of classification percentages such as 
 
-.. _Push your Docker image to public repositories:
+... code-block :: bash
+
+	daisy (score = 0.99785)
+	bee (score = 0.00009)
+	speedboat (score = 0.00008)
+	mitten (score = 0.00006)
+	sulphur butterfly, sulfur butterfly (score = 0.00004)
+
+.. _Push your Docker image to Dockerhub:
 
 **2. Push your Docker image to public repositories**
 
-Once the Docker image works then you can push those images to some public repository such as `dockerhub <http://hub.docker.com>`_ or `quay.io <http://quay.io>`_
+Once the Docker image works as expected then either you set-up an automated build (recommended) or directly push the build Docker image to `dockerhub <http://hub.docker.com>`_. See `Advanced Docker <../docker/dockeradvanced.html>`_ section for more details
 
 .. _Add Docker images as tool in DE:
 
@@ -139,7 +154,7 @@ Congrats!!! It works. The image classifier correctly predicts that the image is 
 
 .. |f1000| image:: ../img/f1000.png
   :width: 700
-  :height: 400
+  :height: 300
 
 .. |img_building_1| image:: ../img/img_building_1.png
   :width: 700
