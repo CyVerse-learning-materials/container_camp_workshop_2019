@@ -4,7 +4,7 @@
 Background
 ~~~~~~~~~~
 
-NVIDIA is one of the leading makers of graphic processing units (GPU). GPU were established as a means of handling graphics processing operations for video cards, but have been greatly expanded for use in generalized computing applications. GPU are used for various applications in Machine Learning, image processing, and 
+NVIDIA is one of the leading makers of graphic processing units (GPU). GPU were established as a means of handling graphics processing operations for video cards, but have been greatly expanded for use in generalized computing applications. GPU are used for various applications in Machine Learning, image processing, and matrix-based linear algebras.
 
 NVIDIA Docker
 ~~~~~~~~~~~~~
@@ -30,6 +30,6 @@ You can run NVIDIA Docker on HPC by using Singularity, but it requires a few ste
 `NVIDIA to Singularity Official YouTube demo <https://youtu.be/iOLVqqHQsBU>`_
 
 .. |NVIDIA-docker-diagram| image:: 5b208976-b632-11e5-8406-38d379ec46aa.png 
-    :target: https://cloud.githubusercontent.com/assets/3028125/12213714/
-    :width: 800
+                           :target: https://cloud.githubusercontent.com/assets/3028125/12213714/5b208976-b632-11e5-8406-38d379ec46aa.png 
+                           :width: 800
     
