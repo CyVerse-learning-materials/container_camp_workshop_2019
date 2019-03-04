@@ -1145,22 +1145,17 @@ You will find the ouput file in the ``scikit_docker`` folder with the following 
 .. |auto_build-2| image:: ../img/auto_build-2.png
   :width: 500
 
-
 .. |auto_build-2.1| image:: ../img/auto_build-2.1.png
   :width: 500
-
 
 .. |auto_build-3| image:: ../img/auto_build-3.png
   :width: 500
 
-
 .. |auto_build-4| image:: ../img/auto_build-4.png
   :width: 500
 
-
 .. |auto_build-5| image:: ../img/auto_build-5.png
   :width: 500
-
 
 .. |auto_build-6| image:: ../img/auto_build-6.png
   :width: 500
@@ -1168,18 +1163,14 @@ You will find the ouput file in the ``scikit_docker`` folder with the following 
 .. |auto_build-7| image:: ../img/auto_build-7.png
   :width: 500
 
-
 .. |volumes| image:: ../img/volumes.png
   :width: 500
 
-
 .. |bind_mount| image:: ../img/bind_mount.png
   :width: 500
-  :height: 450 
 
 .. |tmpfs| image:: ../img/tmpfs.png
   :width: 500
-
 
 .. |docker-compose| image:: ../img/dc-1.png
   :width: 500
@@ -1188,35 +1179,26 @@ You will find the ouput file in the ``scikit_docker`` folder with the following 
 .. |jn_ss| image:: ../img/jn_ss.png
   :width: 500
 
-
 .. |jn_login| image:: ../img/jn_login.png
   :width: 500
-
 
 .. |jn_login2| image:: ../img/jn_login2.png
   :width: 500
 
-
 .. |jn_login3.5| image:: ../img/jn_login3.5.png
   :width: 500
-
 
 .. |jn_login3| image:: ../img/jn_login3.png
   :width: 500
  
-
 .. |jn_login4| image:: ../img/jn_login4.png
   :width: 500
-
 
 .. |rstudio_ss| image:: ../img/rstudio_ss.png
   :width: 500
 
-
 .. |rstudio_login2| image:: ../img/rstudio_login2.png
   :width: 500
  
-
 .. |rstudio_login| image:: ../img/rstudio_login.png
   :width: 500
-
