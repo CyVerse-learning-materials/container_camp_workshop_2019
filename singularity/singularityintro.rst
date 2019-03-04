@@ -35,15 +35,14 @@ Singularity uses a 'flow' whereby you (1) create and modify images on your dev s
 
 Sylabs Singularity homepage: `https://www.sylabs.io/docs/ <https://www.sylabs.io/docs/>`_
 
-While Singularity is more likely to be used on a remote system, e.g. HPC or cloud, you may want to develop your own containers first on a local machine or dev system. 
+While Singularity is more likely to be used on a remote system, e.g. HPC or cloud, you may want to develop your own containers first on a local machine or dev system (See figure above).
 
-Exercise 1 (15-20 mins)
-~~~~~~~~~~~~~~~~~~~~~~~
+Singularity exits as two major versions 
 
-2.1 Setting up your Laptop
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.1 Install Singularity on Laptop
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To Install Singularity on your laptop or desktop PC follow the instructions from Singularity: (`Mac <http://singularity.lbl.gov/install-mac>`_, `Windows <https://www.sylabs.io/guides/2.6/user-guide/installation.html#install-on-windows>`_, `Linux <https://www.sylabs.io/guides/2.6/user-guide/installation.html#install-on-linux>`_)
+To Install Singularity on your laptop or desktop PC follow the instructions from Singularity: https://www.sylabs.io/guides/3.0/user-guide/installation.html#installation
 
   * running a VM is required on Mac OS X, Singularityware `VagrantBox <https://www.sylabs.io/guides/2.6/user-guide/installation.html#install-on-mac>`_
   

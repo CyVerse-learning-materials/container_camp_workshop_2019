@@ -8,47 +8,30 @@ Please complete the minimum Setup Instructions to prepare for the Container Camp
 
     * - Prerequisite
       - Notes
-      - Links
+      - Additional notes
     * - Wi-Fi-enabled laptop
-      - You should be able to use any laptop using Windows/MacOS/Linux.
-        We **strongly recommend** Firefox or Chrome browser; **We do not recommend**
-        **Microsoft Edge Browser**. It is recommended that you have administrative/install 
-        permissions on your laptop.
-      - - `Download FireFox <https://www.mozilla.org/en-US/firefox/new/?scene=2>`_
-        - `Download Chrome <https://www.google.com/chrome/browser/>`_
+      - You should be able to use any laptop (Windows/MacOS/Linux.). We **strongly recommend** Firefox or Chrome browser. It is recommended that you have administrative/install permissions on your laptop.
+      - To enable you to access the University of Arizona's wifi, we will need to register your laptop using its MAC address. Please email your MAC address to: 411@cyverse.org; If you don't know it, you can find out how to get your mac address https://kb.netgear.com/1005/How-do-I-find-my-device-s-MAC-address.
     * - CyVerse Account
-      - Please ensure that you have a CyVerse account and have **verified** your account
-        by completing the verification steps in the email you got when you registered.
-      - Register for your cyverse account at `http://user.cyverse.org/`_. You can **test your account** by logging into `http://user.cyverse.org/ <http://  user.cyverse.org/>`_.
+      - Please ensure that you have a CyVerse account and have **verified** your account by completing the verification steps in the email you got when you registered.
+      - Register for your cyverse account at http://user.cyverse.org/.
     * - Github Account
       - Please ensure that you have a Github account if you don't have one already
       - Register for your Github account at `https://github.com/ <https://github.com/>`_.
     * - Dockerhub Account
       - Please ensure that you have a Dockerhub account if you don't have one already
       - Register for your Dockerhub account at `https://hub.docker.com/ <https://hub.docker.com/>`_.
-    * - Quay.io Account
-      - This is completely optional but recommended and can use github to log-in to quay.io account
-      - Register for your Quay.io account at `https://quay.io/ <https://quay.io/>`_.    
-    * - XSEDE Account
-      - Please ensure that you have a XSEDE account by registering at XSEDE portal to access Jetstream cloud 
-        computing
-      - Register for your XSEDE account at `https://portal.xsede.org/ <https://portal.xsede.org/>`_.
-    * - TACC Account
-      - Please ensure that you have a TACC account to access Stampede2 HPC computer at TACC
-      - Register for your TACC account at `https://portal.tacc.utexas.edu/ <https://portal.tacc.utexas.edu/>`_.
     * - Text Editor
       - Please ensure that you have a Text editor of your choice. Any decent text editor would be sufficient and
         recommended ones include Sublime2 and Atom
-      - - Register for Sublime at `https://www.sublimetext.com/ <https://www.sublimetext.com/>`_.
-        - Register for Atom at `https://atom.io/ <https://atom.io/>`_.
+      - Register for Sublime at `https://www.sublimetext.com/ <https://www.sublimetext.com/>`_. Register for Atom at `https://atom.io/ <https://atom.io/>`_.
     * - Slack for networking
       - We will be using Slack extensively for communication and networking purposes
       - Register for Slack at `https://slack.com/ <https://slack.com/>`_.
 
-**Optional Download Extras**
+**Optional Downloads**
 
-Listed below are some extra downloads that are not required for the workshop, but which
-provide some options for functionalities we will cover.
+Listed below are some extra downloads that are not required for the workshop, but which provide some options for functionalities we will cover.
 
 .. list-table::
     :header-rows: 1

@@ -1,5 +1,16 @@
-Table of Contents
------------------
+|cc-main|
+
+**Container technologies** are letting researchers easily share, scale, and reuse tools and workflows for all types of computational analyses. CyVerse Container Camp is an intensive three day hands-on workshop to learn how to create, us, and deploy containers across a variety of compute systems (your computer, local HPC cloud compute environments, and national resources such as OSG). 
+
+In this 3-day workshop, users will blend practical theory and hands-on exercises where small groups deploy tools and workflows they bring to the workshop.
+
+Expected outcomes:
+------------------
+
+- How to containerize applications and workflows
+- How to use other containerized applications and workflows
+- How to build/deploy containerized applications and workflows
+- How to scale out your computation from laptop to cloud to HPC/OSG
 
 .. toctree::
    :maxdepth: 1
@@ -63,3 +74,6 @@ Table of Contents
    instructions_reporting/instructors
    instructions_reporting/problems
 
+.. |cc-main| image:: ./img/cc-main.png
+  :width: 700
+  :height: 400
