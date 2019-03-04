@@ -1124,23 +1124,18 @@ You will find the ouput file in the ``scikit_docker`` folder with the following 
 
 .. |docker_image| image:: ../img/docker_image.png
   :width: 500
-  :height: 450 
 
 .. |private_registry| image:: ../img/private_registry.png
   :width: 500
-  :height: 450 
 
 .. |create_repo| image:: ../img/create_repo.png
-  :width: 500
-  :height: 450 
+  :width: 500 
 
 .. |create_repo2| image:: ../img/create_repo2.png
-  :width: 500
-  :height: 450 
+  :width: 500 
 
 .. |auto_build-1| image:: ../img/auto_build-1.png
   :width: 500
-  :height: 450 
 
 .. |auto_build-2| image:: ../img/auto_build-2.png
   :width: 500
