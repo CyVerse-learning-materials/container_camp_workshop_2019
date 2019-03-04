@@ -29,6 +29,15 @@ You can run NVIDIA Docker on HPC by using Singularity, but it requires a few ste
 
 `NVIDIA to Singularity Official YouTube demo <https://youtu.be/iOLVqqHQsBU>`_
 
+Running GPU accelarated GUI applications with NVIDIA-Docker
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+NVIDIA Docker can be used as a base-image to create containers running graphical applications remotely. High resolution 3D screens are piped to a remote desktop platform.
+
+Programs which leverage 3D applications include `VirtualGL <https://www.virtualgl.org/>`_, `TurboVNC <https://www.turbovnc.org/>`_, & `TigerVNC <https://tigervnc.org/>`_.
+
+An example application of a graphics-enabled remote desktop is the use of `Blender <https://www.blender.org/>`_ for creating high level of detail images or animations.
+
 .. |NVIDIA-docker-diagram| image:: https://cloud.githubusercontent.com/assets/3028125/12213714/5b208976-b632-11e5-8406-38d379ec46aa.png  
                            :width: 800
     
