@@ -29,7 +29,7 @@ You can run NVIDIA Docker on HPC by using Singularity, but it requires a few ste
 
 `NVIDIA to Singularity Official YouTube demo <https://youtu.be/iOLVqqHQsBU>`_
 
-.. |NVIDIA-docker=diagram| image:: 5b208976-b632-11e5-8406-38d379ec46aa.png 
+.. |NVIDIA-docker-diagram| image:: 5b208976-b632-11e5-8406-38d379ec46aa.png 
     :target: https://cloud.githubusercontent.com/assets/3028125/12213714/
     :width: 800
     
