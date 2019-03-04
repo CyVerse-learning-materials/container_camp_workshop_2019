@@ -22,6 +22,15 @@ NVIDIA GPU Cloud
 
 `NVIDIA GPU Cloud <https://ngc.nvidia.com>`_ hosts numerous containers for HPC and Cloud applications. You must register an account with them (free) to access these. 
 
+Registry
+^^^^^^^^
+
+NVIDIA GPU Cloud hosts three `registry spaces <https://docs.nvidia.com/ngc/ngc-user-guide/ngc-spaces.html#ngc-spaces>`_
+
+`nvcr.io/nvidia` - catalog of fully integrated and optimized deep learning framework containers.
+`nvcr.io/nvidia-hpcvis` - catalog of HPC visualization containers (beta).
+`nvcr.io/hpc` -  popular third-party GPU ready HPC application containers.
+
 Running NVIDIA Docker with Singularity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
