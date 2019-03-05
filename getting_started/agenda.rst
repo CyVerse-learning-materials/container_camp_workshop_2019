@@ -17,11 +17,11 @@ Twitter hash tag: #cc2019
     * - 03/06/19 (Wednesday)
       - 8:30-9:00
       - General introduction to CyVerse and Camp logistics (Nirav Merchant & Upendra Devisetty)
-      -
+      - `Intro slides <https://docs.google.com/presentation/d/1shHJKmmLO8VfBfhhhm7cjFhD-5F1b-2fHWtRtaW-pIA/edit?usp=sharing>`_
     * - 
       - 9:00-9:30
       - General overview of container technology landscape (Nirav Merchant)
-      -
+      - `Container technology <https://docs.google.com/presentation/d/1shHJKmmLO8VfBfhhhm7cjFhD-5F1b-2fHWtRtaW-pIA/edit#slide=id.g34b8be3335_0_86>`_
     * - 
       - 9:30-9:45
       - Coffee and snack break with networking
@@ -112,5 +112,5 @@ Twitter hash tag: #cc2019
       - Served in A127-29 across the hall (pls no food/bev in A116)
     * - 
       - 3:00-5:00
-      - BYOD/BYOA (Hands on Project) and end of workshop
+      - Team presentations
       -

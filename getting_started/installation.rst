@@ -11,7 +11,8 @@ Please complete the minimum Setup Instructions to prepare for the Container Camp
       - Additional notes
     * - Wi-Fi-enabled laptop
       - You should be able to use any laptop (Windows/MacOS/Linux.). We **strongly recommend** Firefox or Chrome browser. It is recommended that you have administrative/install permissions on your laptop.
-      - To enable you to access the University of Arizona's wifi, we will need to register your laptop using its MAC address. Please email your MAC address to: 411@cyverse.org; If you don't know it, you can find out how to get your mac address https://kb.netgear.com/1005/How-do-I-find-my-device-s-MAC-address.
+      - - `Download FireFox <https://www.mozilla.org/en-US/firefox/new/?scene=2>`_
+        - `Download Chrome <https://www.google.com/chrome/browser/>`_
     * - CyVerse Account
       - Please ensure that you have a CyVerse account and have **verified** your account by completing the verification steps in the email you got when you registered.
       - Register for your cyverse account at http://user.cyverse.org/.
