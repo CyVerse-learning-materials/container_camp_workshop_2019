@@ -59,13 +59,13 @@ First you have to login to your Docker hub account. To do that:
 
 	$ docker login
 	Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
-	Username (upendradevisetty):                 
+	Username (your_username):                 
 	Password:
 
-Enter Username and Password when prompted.
+Enter ``Username`` and ``Password`` when prompted.
 
-1.1.2 Tag the image
-^^^^^^^^^^^^^^^^^^^
+1.1.2 Tagging an image
+^^^^^^^^^^^^^^^^^^^^^^
 
 The notation for associating a local image with a repository on a registry is ``username/repository:tag``. The tag is optional, but recommended, since it is the mechanism that registries use to give Docker images a version. Give the repository and tag meaningful names for the context, such as ``get-started:part2``. This will put the image in the ``get-started`` repository and tag it as ``part2``.
 
@@ -77,7 +77,7 @@ Now, put it all together to tag the image. Run docker tag image with your userna
 
 .. code-block:: bash
 
-	$ docker tag $YOUR_DOCKERHUB_USERNAME/myfirstapp $YOUR_DOCKERHUB_USERNAME/myfirstapp:1.0
+	$ docker tag username/appname:latest username/appname:1.0
 
 1.1.3 Publish the image
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -86,7 +86,7 @@ Upload your tagged image to the Dockerhub repository
 
 .. code-block:: bash
 
-	$ docker push $YOUR_DOCKERHUB_USERNAME/myfirstapp:1.0	
+	$ docker push username/appname:1.0	
 
 Once complete, the results of this upload are publicly available. If you log in to Docker Hub, you will see the new image there, with its pull command.
 
@@ -109,13 +109,13 @@ Now run the following command to run the docker image from Dockerhub
 
 .. code-block:: bash
 
-	$ sudo docker run -d -p 8888:5000 --name myfirstapp $YOUR_DOCKERHUB_USERNAME/myfirstapp:1.0
+	$ sudo docker run -d -p 8888:8888 --name jupyter username/jupyter:1.0
 
 .. Note::
 
 	You don't have to run ``docker pull`` since if the image isn’t available locally on the machine, Docker will pull it from the repository.
 
-Head over to ``http://<ipaddress>:8888`` and your app should be live. 
+Head over to ``http://<vm-address>:8888`` and your app should be live. 
 
 1.2 Private repositories
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -199,7 +199,7 @@ Automated Builds have several advantages:
 2.1 Prerequisites
 ~~~~~~~~~~~~~~~~~
 
-To use automated builds, you first must have an account on `Docker Hub <https://hub.docker.com>`_ and on the hosted repository provider (`GitHub <https://github.com/>`_ or `Bitbucket <https://bitbucket.org/>`_). While Dockerhub supports linking both GitHub and Bitbucket repositories, here we will use a GitHub repository. If you don't already have one, make sure you have a GitHub account. A basic account is free
+To use automated builds, you first must have an account on `Docker Hub <https://hub.docker.com>`_ and on the hosted repository provider (`GitHub <https://github.com/>`_ or `Bitbucket <https://bitbucket.org/>`_). While Docker Hub supports linking both GitHub and Bitbucket repositories, here we will use a GitHub repository. If you don't already have one, make sure you have a GitHub account. A basic account is free
 
 .. Note::
 
@@ -236,7 +236,7 @@ Let's create an automatic build for our ``flask-app`` using the instructions bel
 .. code-block:: bash
 
 	$ git init
-	Initialized empty Git repository in /Users/upendra_35/Documents/git.repos/flask-app/.git/
+	Initialized empty Git repository in /home/username/github/repository_name/
 	
 	$ git status
 	On branch master
@@ -271,7 +271,7 @@ Let's create an automatic build for our ``flask-app`` using the instructions bel
 
 .. code-block:: bash
 
-	$ git remote add origin https://github.com/upendrak/flask-app.git
+	$ git remote add origin https://github.com/username/jupyter.git
 
 	$ git push -u origin master
 	Counting objects: 7, done.
@@ -279,7 +279,7 @@ Let's create an automatic build for our ``flask-app`` using the instructions bel
 	Compressing objects: 100% (5/5), done.
 	Writing objects: 100% (7/7), 1.44 KiB | 0 bytes/s, done.
 	Total 7 (delta 0), reused 0 (delta 0)
-	To https://github.com/upendrak/flask-app.git
+	To https://github.com/username/jupyter.git
 	 * [new branch]      master -> master
 	Branch master set up to track remote branch master from origin.
 
@@ -289,7 +289,7 @@ Let's create an automatic build for our ``flask-app`` using the instructions bel
 
 - For now select your GitHub account from the User/Organizations list on the left. The list of repositories change.
 
-- Pick the project to build. In this case ``flask-app``. Type in "Conainer Camp flask-app" in the Short Description box.
+- Pick the project to build. In this case ``jupyter``. Type in "Conainer Camp Jupyter" in the Short Description box.
 
 - If you have a long list of repos, use the filter box above the list to restrict the list. After you select the project, the system displays the Create Automated Build dialog.
 
@@ -329,7 +329,7 @@ It can take a few minutes for your automated build job to be created. When the s
 
 7. Manually Trigger a Build
 
-Before you trigger an automated build by pushing to your GitHub ``flask-app`` repo, you'll trigger a manual build. Triggering a manual build ensures everything is working correctly.
+Before you trigger an automated build by pushing to your GitHub ``jupyter`` repo, you'll trigger a manual build. Triggering a manual build ensures everything is working correctly.
 
 From your automated build page choose ``Build Settings``
 
