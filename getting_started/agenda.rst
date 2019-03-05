@@ -52,7 +52,7 @@ Twitter hash tag: #cc2019
       - 
     * - 03/07/19 (Thursday)
       - 8:30-9:00
-      - Containers in Astronomy: Lecture by CK Chan
+      - Containers in Astronomy: Presentation by CK Chan
       -
     * - 
       - 9:00-9:30 
@@ -68,12 +68,12 @@ Twitter hash tag: #cc2019
       -
     * - 
       - 1:00-1:30
-      - Docker Container Orchestration (Nirav Merchant)
+      - Container scaling (Open discussion)
       -
     * - 
       - 1:30-4:00
       - Breakout sessions 
-      - Coffee and snacks will be served in A127-29 across the hall (pls no food/bev in A116)
+      - `Breakout sessions <../topics/breakout_session.html>`_
     * - 
       - 4:00-5:00
       - Optional: Mirror Lab tour or UA HPC Facility tour

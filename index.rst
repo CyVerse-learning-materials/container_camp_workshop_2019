@@ -58,6 +58,7 @@ Expected outcomes:
 
    cyverse/boot
    cyverse/de_docker
+   cyverse/vice_docker
 
 .. toctree::
    :maxdepth: 1

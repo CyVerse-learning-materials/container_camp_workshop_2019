@@ -36,23 +36,33 @@ Briefly,
 
 - clone the repo:
 
-  ``git clone https://github.com/CyVerse-learning-materials/container_camp_workshop_2019.git``
+.. code-block:: bash
+
+  git clone https://github.com/CyVerse-learning-materials/container_camp_workshop_2019.git``
 
 - set up a virtualenv with python2 or python3:
 
-  ``python -m virtualenv buildenv -p python3.5; . ~/buildenv/bin/activate``
-  
+.. code-block:: bash
+
+  python -m virtualenv buildenv -p python3.5; . ~/buildenv/bin/activate
+
 - install the prerequisites:
 
-  ``pip install -r requirements.txt``
+.. code-block:: bash
+
+  pip install -r requirements.txt
   
 - build site: 
   
-  ``make html``
+.. code-block:: bash
 
-- open / click on 
+  make html
 
-  ``_build/html/index.html``
+- open / click on
+
+.. code-block:: bash 
+
+  _build/html/index.html
 
 **Formatting, guidelines, etc.**
 
@@ -77,12 +87,12 @@ Image formatting in Restructured text is pretty straightforward. Here is an exam
 
 |static_site_docker|
 
+The code that generates this image is this
+
+|instructors_code|
+
 .. |static_site_docker| image:: ../img/static_site_docker.png
   :width: 750
-  :height: 700
 
-`.. |static_site_docker| image:: ../img/static_site_docker.png`
-
-|  :width: 750
-
-|  :height: 700
+.. |instructors_code| image:: ../img/instructors_code.png
+  :width: 750

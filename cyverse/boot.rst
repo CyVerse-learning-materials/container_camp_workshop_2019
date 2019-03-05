@@ -1,5 +1,7 @@
-**Booting an Atmosphere instance**
-==================================
+|CyVerse logo|_
+
+**Booting a CyVerse Atmosphere instance**
+=========================================
 
 In this session, we will walk through how to start up a running computer (an "instance") on the CyVerse Atmosphere Cloud service. Here is the `Atmosphere manual <https://wiki.cyverse.org/wiki/display/atmman/Atmosphere+Manual+Table+of+Contents>`_ if you are interested in learning more about CyVerse Atmosphere 
 
@@ -76,6 +78,10 @@ Before deleting an instance make sure you backup your data, once the instance is
 .. Note::
 
   It is advisable to delete the machine if you are not planning to use it in future to save valuable resources. However if you want to use it in future, you can suspend it.
+
+.. |CyVerse logo| image:: ../img/cyverse_rgb.png
+    :width: 500
+.. _CyVerse logo: http://learning.cyverse.org/
 
 .. |atmo-1.1| image:: ../img/atmo-1.1.png
   :width: 700
