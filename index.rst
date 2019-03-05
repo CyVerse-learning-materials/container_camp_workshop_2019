@@ -35,6 +35,7 @@ Expected outcomes:
 
    docker/dockerintro
    docker/dockeradvanced
+   docker/dockerhandson
 
 .. toctree::
    :maxdepth: 1
