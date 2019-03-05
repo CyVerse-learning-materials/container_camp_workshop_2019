@@ -214,14 +214,18 @@ To use automated builds, you first must have an account on `Docker Hub <https://
 
 2.	Click "Create Repository+"
 
-3.	Click the ``Link GitHub``.
+|dockerhub_create|
+
+3.	Click the Build Settings and select ``GitHub``.
 
 |dockerhub_createrepo|
 
-	The system prompts you to choose between **Public and Private** and **Limited Access**. The **Public** and **Private** connection type is required if you want to use the Automated Builds.
+The system prompts you to choose between **Public and Private** and **Limited Access**. The **Public** and **Private** connection type is required if you want to use the Automated Builds.
 
 4.	Press ``Select`` under **Public and Private** connection type.
 	If you are not logged into GitHub, the system prompts you to enter GitHub credentials before prompting you to grant access. After you grant access to your code repository, the system returns you to Docker Hub and the link is complete.
+
+|dockerhub_buildsettings|
 
 After you grant access to your code repository, the system returns you to Docker Hub and the link is complete. For example, github linked hosted repository looks like this:
 
@@ -849,11 +853,14 @@ Exercise 2 (10 mins)
 .. |docker_image| image:: ../img/docker_image.png
   :width: 500
   
+.. |dockerhub_create| image:: ../img/dockerhub_create.png
+  :width: 800
+  
 .. |dockerhub_createrepo| image:: ../img/dockerhub_createrepo.png
-  :width: 500
+  :width: 800
   
 .. |dockerhub_buildsettings| image:: ../img/dockerhub_buildsettings.png
-  :width: 500  
+  :width: 800  
 
 .. |private_registry| image:: ../img/private_registry.png
   :width: 500
