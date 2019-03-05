@@ -229,7 +229,7 @@ The system prompts you to choose between **Public and Private** and **Limited Ac
 
 After you grant access to your code repository, the system returns you to Docker Hub and the link is complete. For example, github linked hosted repository looks like this:
 
-|auto_build-1|
+|dockerhub_autobuild|
 
 2.3 Create a new automated build
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -859,6 +859,9 @@ Exercise 2 (10 mins)
 .. |dockerhub_createrepo| image:: ../img/dockerhub_createrepo.png
   :width: 800
   
+.. |dockerhub_autobuild| image:: ../img/dockerhub_autobuild.png
+  :width: 800  
+
 .. |dockerhub_buildsettings| image:: ../img/dockerhub_buildsettings.png
   :width: 800  
 
