@@ -441,9 +441,13 @@ Originally, the ``-v`` or ``--volume`` flag was used for standalone containers a
  	New users should use the ``--mount`` syntax. Experienced users may be more familiar with the ``-v`` or ``--volume`` syntax, but are encouraged to use ``--mount``, because research has shown it to be easier to use.
 
 ``-v`` or ``--volume``: Consists of three fields, separated by colon characters (:). The fields must be in the correct order, and the meaning of each field is not immediately obvious.
+
 - In the case of named volumes, the first field is the name of the volume, and is unique on a given host machine.
 - The second field is the path where the file or directory are mounted in the container.
 - The third field is optional, and is a comma-separated list of options, such as ``ro``.
+
+.. code-block:: bash
+   -v /home/username/your_data_folder:/data:ro
 
 3.2 Bind mounts
 ^^^^^^^^^^^^^^^
