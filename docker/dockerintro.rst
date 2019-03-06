@@ -277,9 +277,9 @@ An important distinction with regard to images is between base images and child 
 
 Now that you have a better understanding of images, it's time to create an image that sandboxes a small Python application. We'll do this by creating a small Python script which prints a welcome message, then dockerizing it by writing a Dockerfile, and finally we'll build the image and run it. 
 
-- `Create a Python script`_
-- `Build the image`_
-- `Run your image`_
+- Create a Python script
+- Build the image
+- Run your image
 
 .. _Create a Python script:
 
@@ -287,8 +287,8 @@ Now that you have a better understanding of images, it's time to create an image
 
 Start by creating a directory called ``simple-script`` where we'll create the following files:
 
-- `app.py`_
-- `Dockerfile`_
+- ``app.py``
+- ``Dockerfile``
 
 .. code-block:: bash
 
