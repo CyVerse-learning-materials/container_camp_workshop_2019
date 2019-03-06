@@ -23,7 +23,7 @@ Docker offers three different ways to mount data into a container from the Docke
 
 .. Warning::
 
-	One side effect of using bind mounts, for better or for worse, is that you can change the host filesystem via processes running in a container, including creating, modifying, or deleting important system files or directories. This is a powerful ability which can have security implications, including impacting non-Docker processes on the host system.
+	A side effect of using bind mounts, for better or for worse, is that you can change the host filesystem via processes running in a container, including creating, modifying, or deleting important system files or directories.  This is a powerful ability which can have security implications, including impacting non-Docker processes on the host system.
 
 	If you use ``--mount`` to bind-mount a file or directory that does not yet exist on the Docker host, Docker does not automatically create it for you, but generates an error.
 
@@ -73,7 +73,7 @@ This shows that the mount is a bind mount with correct source and target.  It al
 Use case 1: Processing VLBI data with HOPS in Docker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-HOPS stands for the Haystack Observatory Postprocessing System.  It is a standard tool used in Very-long-baseline interferometry (VLBI) to perform data analysis.  HOPS has a long history and it depends on legacy libraries.  This makes it difficult to compile on modern Unix/Linux systems.  Nevertheless, with Docker, you **have** already launched a HOPS envirnment that you can analysis VLBI data!
+HOPS stands for the Haystack Observatory Postprocessing System.  It is a standard data analysis tool in Very-long-baseline interferometry (VLBI).  HOPS has a long history and it depends on legacy libraries.  This makes it difficult to compile on modern Unix/Linux systems.  Nevertheless, with Docker, you **have** already launched a HOPS envirnment that you can analysis VLBI data!
 
 The most basic step in analysis VLBI is called "fringe fitting", which we will perform in the running HOPS container by
 
@@ -88,7 +88,7 @@ The most basic step in analysis VLBI is called "fringe fitting", which we will p
 	3C279.zxxerd  LL..zxxerd     LL.B.2.zxxerd  LW.B.3.zxxerd  W..zxxerd   WW.B.5.zxxerd
 	L..zxxerd     LL.B.1.zxxerd  LW..zxxerd     LW.B.4.zxxerd  WW..zxxerd
 
-``fourfit`` reads in the correlated data and create the so called "fringe files". The warnings are normal because there are missing polarizations in the data. In order to see the result of the fringe fitting, you can use ``fplot``:
+``fourfit`` reads in the correlated data and create the so called "fringe files".  The warnings are normal because there are missing polarizations in the data.  In order to see the result of the fringe fitting, you can use ``fplot``:
 
 .. code-block:: bash
 
@@ -96,17 +96,17 @@ The most basic step in analysis VLBI is called "fringe fitting", which we will p
 	$ ls
 	0000.ps  0001.ps  0002.ps  0003.ps  0004.ps  1234
 
-You just created 4 fringe plots which contain all important information of the VLBI experiment!  Now you can exit your HOPS container and open them on your host machine.
+Congratulations!  You just created 4 fringe plots that show all important information of the VLBI experiment!  Now you can exit your HOPS container and open them on your host machine.
 
 2. Jupyter Notebook Hands-on
 ============================
 
-Mounting a host directory is one way to make a container connect with the outside work. Another possible is through network by exposing a port.
+Mounting a host directory is one way to make a container connect with the outside work.  Another possible is through network by exposing a port.
 
 Use case 2: Processing Galaxy Simulation with Jupyter in Docker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this second use case, we will use Docker to run a "ready to go" Jupyter notebook in a container.  We will expose the port 8888 from the container to the localhost so that you can connect to the notebook.
+In this second hands-on, we will use Docker to run a "ready to go" Jupyter notebook in a container.  We will expose the port 8888 from the container to the localhost so that you can connect to the notebook.
 
 Inside the ``ccw-2019-astro`` git repository that you downloaded earlier, there is a sample Galaxy simulation:
 
@@ -147,18 +147,18 @@ The last line is a URL that we need to copy and paste into our browser to access
 
 .. warning::
 
-	Do not copy and paste the above URL in your browser as this URL is specific to my environment and it doesn't work for you.
+	Do not copy and paste the above URL in your browser as this URL is specific to my environment.
 
 .. image:: ../img/jn_login.png
   :width: 700
   :height: 294
   :align: center
 
-Once you've done that you should be greeted by your very own containerised Jupyter service!  Now open ``work/InClassLab7_Template_wSolutions.ipynb`` and try analysis a Galaxy simulation!
+You should be greeted by your own containerised Jupyter service!  Now open ``galaxy/InClassLab7_Template_wSolutions.ipynb`` and try analysis a Galaxy simulation!
 
 .. image:: ../img/jn_galaxy.png
   :width: 700
   :height: 510
   :align: center
 
-To shut down the container once you're done working, simply hit ``Ctrl-C`` in the terminal/command prompt.  Your work will all be saved on your actual machine in the path we set in our Docker compose file.  And there you have it — a quick and easy way to start using Jupyter notebooks with the magic of Docker.
+To shut down the container, simply hit ``Ctrl-C`` in the terminal/command prompt twice.  Your work will all be saved on your actual machine in the path we set in our Docker compose file.  And there you have it---a quick and easy way to start using Jupyter notebooks with the magic of Docker.
