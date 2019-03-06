@@ -847,13 +847,6 @@ And that’s it! You should be able to see the Flask application running on ``ht
 
 |docker-compose|
 
-Exercise 2 (10 mins)
-~~~~~~~~~~~~~~~~~~~~
-
-- Change the greeting in ``app.py`` and save it. For example, change the ``This Compose/Flask demo has been viewed`` message to ``This Container Camp Workshop demo has been viewed``
-- Refresh the `app` in your browser. What do you see now?
-- Create a automatic build for ``compose-flask`` project directory
-- Share your Dockerhub link url on Slack
 
 .. code-block:: bash
 
