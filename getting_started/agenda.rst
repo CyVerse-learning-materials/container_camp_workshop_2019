@@ -35,17 +35,17 @@ Twitter hash tag: #cc2019
       - Lunch break (on your own)
       -
     * - 
-      - 1:00-2:30
-      - Docker hands-on exercises (CK Chan)
-      - `Docker hands-on exercises <../docker/dockerhandson.html>`_
+      - 1:00-3:00
+      - Advanced Docker hands on (Tyson Swetnam) 
+      - `Advanced Docker <../docker/dockeradvanced.html>`_ 
     * - 
-      - 2:30-3:00
+      - 3:00-3:30
       - Coffee and snack break with networking
       - Served in A127-29 across the hall (pls no food/bev in A116)
     * - 
-      - 3:00-5:00
-      - Advanced Docker hands on (Tyson Swetnam)
-      - `Advanced Docker <../docker/dockeradvanced.html>`_
+      - 3:30-5:00
+      - Docker hands-on exercises (CK Chan) 
+      - `Docker hands-on exercises <../docker/dockerhandson.html>`_
     * - 
       - 5:00-6:00
       - Debriefing with instructors
