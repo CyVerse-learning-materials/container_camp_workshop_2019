@@ -244,14 +244,14 @@ After you grant access to your code repository, the system returns you to Docker
 
 |dockerhub_autobuild|
 
-2.3 Create a new automated build
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.3 Automated Container Builds
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Automated build repositories rely on the integration with your github code repository to build. 
+Automated build repositories rely on the integration with a version control system (GitHub or Gitlab) where your ``Dockerfile`` is kept.
 
-Let's create an automatic build for our ``flask-app`` using the instructions below:
+Let's create an automatic build for our ``jupter`` container using the instructions below:
 
-1. Initialize git repository for the `flask-app` directory
+1. Initialize git repository for the `jupyter` directory you created for your ``Dockerfile``
 
 .. code-block:: bash
 
@@ -266,10 +266,7 @@ Let's create an automatic build for our ``flask-app`` using the instructions bel
 	Untracked files:
   	(use "git add <file>..." to include in what will be committed)
 
-		Dockerfile
-		app.py
-		requirements.txt
-		templates/
+		Dockerfileg
 
 	nothing added to commit but untracked files present (use "git add" to track) 
 
