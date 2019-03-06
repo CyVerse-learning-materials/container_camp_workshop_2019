@@ -195,7 +195,7 @@ You can also pull the image from the local repository similar to how you pull it
 
 	$ docker run -d -P --name=myfirstapplocal $REGISTRY/$(whoami)/myfirstapp:1.0
 
-2. Automated Docker image building from github
+2. Automated Docker image building from GitHub
 ==============================================
 
 An automated build is a Docker image build that is triggered by a code change in a GitHub or Bitbucket repository. By linking a remote code repository to a Dockerhub automated build repository, you can build a new Docker image every time a code change is pushed to your code repository.
@@ -445,8 +445,8 @@ Originally, the ``-v`` or ``--volume`` flag was used for standalone containers a
 - The second field is the path where the file or directory are mounted in the container.
 - The third field is optional, and is a comma-separated list of options, such as ``ro``.
 
-3.1.2 Bind mounts
-^^^^^^^^^^^^^^^^^
+3.2 Bind mounts
+^^^^^^^^^^^^^^^
 
 ``--mount``: Consists of multiple key-value pairs, separated by commas and each consisting of a ``<key>=<value>`` tuple. The ``--mount`` syntax is more verbose than ``-v`` or ``--volume``, but the order of the keys is not significant, and the value of the flag is easier to understand.
 - The type of the mount, which can be **bind**, **volume**, or **tmpfs**.
@@ -458,8 +458,8 @@ Originally, the ``-v`` or ``--volume`` flag was used for standalone containers a
 
 	The ``--mount`` and ``-v`` examples have the same end result.
 
-3.1.3 Create and manage volumes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3.3 Create and manage volumes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Unlike a bind mount, you can create and manage volumes outside the scope of any container.
 
@@ -499,7 +499,7 @@ Remove a volume
 
 	$ docker volume rm my-vol
 
-3.1.4 Populate a volume using a container
+3.3.1 Populate a volume using a container
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This example starts an ``nginx`` container and populates the new volume ``nginx-vol`` with the contents of the container’s ``/var/log/nginx`` directory, which is where Nginx stores its log files.
@@ -574,7 +574,7 @@ After running either of these examples, run the following commands to clean up t
 
 	$ docker volume rm nginx-vol
 
-3.2 Bind mounts
+3.4 Bind mounts
 ~~~~~~~~~~~~~~~
 
 **Bind mounts:** When you use a bind mount, a file or directory on the host machine is mounted into a container. 
@@ -625,7 +625,7 @@ Stop the container:
 
 	$ docker rm -f devtest
 
-3.2.2 Use a read-only bind mount
+3.4.1 Use a read-only bind mount
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For some development applications, the container needs to write into the bind mount, so changes are propagated back to the Docker host. At other times, the container only needs read access.
