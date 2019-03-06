@@ -1,6 +1,37 @@
 **Docker hands-on exercises**
 -----------------------------
 
+Use case 1: Deploy a custom Docker image
+========================================
+
+- Download the sample code from https://github.com/Azure-Samples/docker-django-webapp-linux.git
+
+- Build the image using the Dockerfile in that repo using ``docker build`` command
+
+- Run an instance from that image
+
+- Verify the web app and container are functioning correctly
+
+Use case 2: Simple Bioinformatics example
+=========================================
+
+Let's say if you find a cool tool/software and want to run it on your computer and as we found out in the morning session, it's not always easy to install the tool onto your computer or on a server natively. Since this workshop is about containers, let's containerize this tool.
+
+For this simple hands-on exercise, let's containerize ``fastqe`` tool - https://github.com/lonsbio/fastqe. For those of you who are not from Bioinformatics, this tool generates read one or more FASTQ files, then it will compute quality stats for each file and print those stats as emoji... for some reason.
+
+|fastqe|
+
+Given a fastq file in Illumina 1.8+/Sanger format, calculate the mean (rounded) score for each position and print a corresponding emoji!
+
+.. Tip::
+	
+	Natively you would install this tool like ``pip install fastqe``. Now think of how you can dockerize this with appropriate base image and dependencies
+
+After dockerizing the tool, for this exercise we don't have to bind mount the volume but just print the `fastqe` help and make sure that it is actually working.
+
+.. Tip::
+
+	Natively you would print the help of the tool as ``fastqe -h``
 1. Data Management Hands-on
 ===========================
 
@@ -162,3 +193,6 @@ You should be greeted by your own containerised Jupyter service!  Now open ``gal
   :align: center
 
 To shut down the container, simply hit ``Ctrl-C`` in the terminal/command prompt twice.  Your work will all be saved on your actual machine in the path we set in our Docker compose file.  And there you have it---a quick and easy way to start using Jupyter notebooks with the magic of Docker.
+
+.. |fastqe| image:: ../img/fastqe.png
+	:width: 700
