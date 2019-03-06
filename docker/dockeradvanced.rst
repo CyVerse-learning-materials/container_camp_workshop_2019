@@ -307,7 +307,7 @@ Let's create an automatic build for our container using the instructions below:
 
 - If you have a long list of repos, use the filter box above the list to restrict the list. After you select the project, the system displays the Create Automated Build dialog.
 
-|auto_build-2|
+|dockerhub_autobuilds|
 
 .. Note::
 
@@ -827,6 +827,9 @@ And that’s it! You should be able to see the Flask application running on ``ht
 .. |dockerhub_autobuild| image:: ../img/dockerhub_autobuild.png
   :width: 800  
 
+.. |dockerhub_autobuilds| image:: ../img/dockerhub_autobuilds.png
+  :width: 800 
+  
 .. |dockerhub_buildsettings| image:: ../img/dockerhub_buildsettings.png
   :width: 800  
 
