@@ -23,11 +23,11 @@ Twitter hash tag: #cc2019
       - General overview of container technology landscape (Nirav Merchant)
       - `Container technology <https://docs.google.com/presentation/d/1shHJKmmLO8VfBfhhhm7cjFhD-5F1b-2fHWtRtaW-pIA/edit#slide=id.g34b8be3335_0_86>`_
     * - 
-      - 9:30-9:45
+      - 10:15-10:30
       - Coffee and snack break with networking
       - Served in A127-29 across the hall (pls no food/bev in A116)
     * - 
-      - 9:45-11:00
+      - 10:30-12:00
       - Introduction to Docker (Julian Pistorius)
       - `Introduction to Docker <../docker/dockerintro.html>`_
     * -
