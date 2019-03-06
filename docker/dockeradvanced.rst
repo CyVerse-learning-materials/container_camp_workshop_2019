@@ -510,55 +510,24 @@ This example starts an ``nginx`` container and populates the new volume ``nginx-
 
 .. code-block:: bash
 
-	$ docker run -d -p 8891:80 --name=nginxtest --mount source=nginx-vol,target=/var/log/nginx nginx:latest
+	$ docker run -d -p 8889:80 --name=jupytertest --mount source=jupyter-vol,target=/var/log/jupyter username/jupyter:latest
 
-So, we now have a copy of Nginx running inside a Docker container on our machine, and our host machine's port 5000 maps directly to that copy of Nginx's port 80. Let's use curl to do a quick test request:
-
-.. code-block:: bash
-
-	$ curl localhost:8891
-	<!DOCTYPE html>
-	<html>
-	<head>
-	<title>Welcome to nginx!</title>
-	<style>
-	    body {
-	        width: 35em;
-	        margin: 0 auto;
-	        font-family: Tahoma, Verdana, Arial, sans-serif;
-	    }
-	</style>
-	</head>
-	<body>
-	<h1>Welcome to nginx!</h1>
-	<p>If you see this page, the nginx web server is successfully installed and
-	working. Further configuration is required.</p>
-
-	<p>For online documentation and support please refer to
-	<a href="http://nginx.org/">nginx.org</a>.<br/>
-	Commercial support is available at
-	<a href="http://nginx.com/">nginx.com</a>.</p>
-
-	<p><em>Thank you for using nginx.</em></p>
-	</body>
-	</html>
-
-You'll get a screenful of HTML back from Nginx showing that Nginx is up and running. But more interestingly, if you look in the ``nginx-vol`` volume on the host machine and take a look at the ``access.log`` file you'll see a log message from Nginx showing our request.
+So, we now have a copy of Jupyter volume running inside a Docker container on our machine, and our host machine's port 5000 maps directly to that copy of Jupyter's port 80. Let's use curl to do a quick test request:
 
 .. code-block:: bash
 	
-	cat nginx-vol/_data/access.log
+	cat jupyter-vol/_data/access.log
 
-Use ``docker inspect nginx-vol`` to verify that the volume was created and mounted correctly. Look for the Mounts section:
+Use ``docker inspect jupyter-vol`` to verify that the volume was created and mounted correctly. Look for the Mounts section:
 
 .. code-block:: bash
 
 	"Mounts": [
 	            {
 	                "Type": "volume",
-	                "Name": "nginx-vol",
-	                "Source": "/var/lib/docker/volumes/nginx-vol/_data",
-	                "Destination": "/var/log/nginx",
+	                "Name": "jupyter-vol",
+	                "Source": "/var/lib/docker/volumes/jupyter-vol/_data",
+	                "Destination": "/var/log/jupyter",
 	                "Driver": "local",
 	                "Mode": "z",
 	                "RW": true,
@@ -572,11 +541,11 @@ After running either of these examples, run the following commands to clean up t
 
 .. code-block:: bash
 
-	$ docker stop nginxtest
+	$ docker stop jupytertest
 
-	$ docker rm nginxtest
+	$ docker rm jupytertest
 
-	$ docker volume rm nginx-vol
+	$ docker volume rm jupyter-vol
 
 3.4 Bind mounts
 ~~~~~~~~~~~~~~~
@@ -602,24 +571,13 @@ After running either of these examples, run the following commands to clean up t
 
 	$ mkdir data
 
-	$ docker run -d -p 8891:80 --name devtest --mount type=bind,source="$(pwd)"/data,target=/var/log/nginx nginx:latest
+	$ docker run -p 8888:8888 --name jupytertest --mount type=bind,source="$(pwd)"/data,target=/var/log/jupyter username/jupyter:latest
 
-Use `docker inspect devtest` to verify that the bind mount was created correctly. Look for the "Mounts" section
+Use `docker inspect jupytertest` to verify that the bind mount was created correctly. Look for the "Mounts" section
 
 .. code-block::
 
-	$ docker inspect devtest
-
-	"Mounts": [
-	            {
-	                "Type": "bind",
-	                "Source": "/Users/upendra_35/Documents/git.repos/flask-app/data",
-	                "Destination": "/var/log/nginx",
-	                "Mode": "",
-	                "RW": true,
-	                "Propagation": "rprivate"
-	            }
-	        ],
+	$ docker inspect jupytertest
 
 This shows that the mount is a bind mount, it shows the correct source and target, it shows that the mount is read-write, and that the propagation is set to rprivate.
 
@@ -627,7 +585,7 @@ Stop the container:
 
 .. code-block:: bash
 
-	$ docker rm -f devtest
+	$ docker rm -f juptertest
 
 3.4.1 Use a read-only bind mount
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -638,33 +596,21 @@ This example modifies the one above but mounts the directory as a read-only bind
 
 .. code-block:: bash
 
-	$ docker run -d -p 8891:80 --name devtest --mount type=bind,source="$(pwd)"/data,target=/var/log/nginx,readonly nginx:latest
+	$ docker run -d -p 8888:8888 --name jupytertest --mount type=bind,source="$(pwd)"/data,target=/var/log/jupyter,readonly username/jupyter:latest
 
-Use ``docker inspect devtest`` to verify that the bind mount was created correctly. Look for the Mounts section:
+Use ``docker inspect jupytertest`` to verify that the bind mount was created correctly. Look for the Mounts section:
 
-.. code-block:: bash
-
-	"Mounts": [
-            {
-                "Type": "bind",
-                "Source": "/Users/upendra_35/Documents/git.repos/flask-app/data",
-                "Destination": "/var/log/nginx",
-                "Mode": "",
-                "RW": false,
-                "Propagation": "rprivate"
-            }
-        ],
 Stop the container:
 
 .. code-block:: bash
 
-	$ docker rm -f devtest
+	$ docker rm -f jupytertest
 
 Remove the volume:
 
 .. code-block:: bash
 
-	$ docker volume rm devtest
+	$ docker volume rm jupytertest
 
 3.3 tmpfs Mounts
 ~~~~~~~~~~~~~~~~
@@ -677,24 +623,13 @@ Remove the volume:
 
 .. code-block:: bash
 
-	$ docker run -d -p 8891:80 --name devtest --mount type=tmpfs,target=/var/log/nginx nginx:latest
+	$ docker run -d -p 8888:8888 --name jupytertest --mount type=tmpfs,target=/var/log/jupyter username/jupyter:latest
 
-Use `docker inspect devtest` to verify that the bind mount was created correctly. Look for the Mounts section:
+Use `docker inspect jupytertest` to verify that the bind mount was created correctly. Look for the Mounts section:
 
 .. code-block:: bash
 
-	$ docker inspect devtest
-
-	"Mounts": [
-	            {
-	                "Type": "tmpfs",
-	                "Source": "",
-	                "Destination": "/var/log/nginx",
-	                "Mode": "",
-	                "RW": true,
-	                "Propagation": ""
-	            }
-	        ],
+	$ docker inspect jupytertest
 
 You can see from the above output that the ``Source`` filed is empty which indicates that the contents are not avaible on Docker host or host file system. 
 
@@ -702,15 +637,15 @@ Stop the container:
 
 .. code-block:: bash
 
-	$ docker rm -f devtest
+	$ docker rm -f jupytertest
 
 Remove the volume:
 
 .. code-block:: bash
 
-	$ docker volume rm devtest
+	$ docker volume rm jupytertest
 
-4. Docker Compose for multi container apps
+4. Docker Compose for multi-container apps
 ==========================================
 
 **Docker Compose** is a tool for defining and running your multi-container Docker applications. 
