@@ -772,24 +772,21 @@ You don't have to install anything to use PWD. Just open ``https://labs.play-wit
 
 .. |docker| image:: ../img/docker.png
   :width: 250
-  :height: 200
+
 
 .. |static_site_docker| image:: ../img/static_site_docker.png
   :width: 500
-  :height: 450
+
 
 .. |static_site_docker1| image:: ../img/static_site_docker1.png
   :width: 500
-  :height: 450
 
 .. |portainer_demo| image:: ../img/portainer_demo.png
   :width: 500
-  :height: 450
+
 
 .. |pwd| image:: ../img/pwd.png
   :width: 500
-  :height: 450
 
 .. |catpic| image:: ../img/catpic-1.png
-  :width: 500
-  :height: 450  
+  :width: 500 
