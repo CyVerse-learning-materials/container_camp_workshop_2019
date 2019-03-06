@@ -4,14 +4,18 @@
 Now that we are *relatively* comfortable with Docker, lets look at some advanced Docker topics, such as: 
 
 - Registry
-- Porting a Docker image to a Repository (public and private) 
+- Porting a Docker image to a Registry & Repository (public and private) 
 - Managing data within containers 
 - Deploying containers on cloud services
 
 1. Docker Registries
 ====================
 
-To demonstrate the portability of what we just created, let’s upload our built Docker image and run it somewhere else (i.e. `CyVerse Atmosphere <https://atmo.cyverse.org>`_). After all, you’ll need to learn how to push to registries when you want to deploy containers to production.
+To demonstrate the portability of what we just created, let’s upload our built Docker image to a Docker Registry and then run it somewhere else (i.e. `CyVerse Atmosphere <https://atmo.cyverse.org>`_). 
+
+In this exercise, you'll learn how to push built containers to registries, pull those containers from registries, and run those containers on remote hosts (virtual machines). 
+
+This will benefit you when you want to deploy new containers to production environments where testing is not possible.
 
 .. important::
 
@@ -21,15 +25,15 @@ To demonstrate the portability of what we just created, let’s upload our built
 
 There are several things you can do with Docker registries:
 
-- Pushing images 
-- Finding images
-- Pulling images
-- Sharing images
+- Push images 
+- Find images
+- Pull images
+- Share images
 
 1.1 Popular Registries
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Some example of public/private registries include:
+Some examples of public/private registries to consider for your research needs:
 
 - `Docker Cloud <https://cloud.docker.com/>`_
 - `Docker Hub <https://hub.docker.com/>`_ 
@@ -51,21 +55,30 @@ Now that you've created and tested your image, you can push it to Docker cloud o
 
 .. Note::
 
-	If you don’t have a Docker account, sign up for one at `Docker cloud <https://cloud.docker.com/>`_ or `Docker hub <https://hub.docker.com/>`_. Make note of your username. There are several advantages of registering to Dockerhub which we will see later on in the session
+	If you don’t have an account, sign up for one at `Docker Cloud <https://cloud.docker.com/>`_ or `Docker Hub <https://hub.docker.com/>`_. Make note of your username. There are several advantages of registering to DockerHub which we will see later on in the session
 
-First you have to login to your Docker hub account. To do that:
+First, you have to login to your Docker Hub account. 
+
+If you want to authenticate to a different Registry, type the name of the registry after ``login``:
 
 .. code-block:: bash
 
-	$ docker login
-	Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
-	Username (your_username):                 
-	Password:
+	$ docker login <registry-name>
+	Authenticating with existing credentials...
+	WARNING! Your password will be stored unencrypted in /home/tswetnam/.docker/config.json.
+	Configure a credential helper to remove this warning. See
+	https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 
-Enter ``Username`` and ``Password`` when prompted.
+	Login Succeeded
 
-1.1.2 Tagging an image
-^^^^^^^^^^^^^^^^^^^^^^
+If it is your first time logging in you will be queried for your ``username`` and ``password``. 
+
+Login with your Docker ID to push and pull images from Docker Hub or private registry. 
+
+If you don't have a Docker ID, head over to https://hub.docker.com to create one.                
+
+1.1.2 Tagging images
+^^^^^^^^^^^^^^^^^^^^
 
 The notation for associating a local image with a repository on a registry is ``username/repository:tag``. The tag is optional, but recommended, since it is the mechanism that registries use to give Docker images a version. Give the repository and tag meaningful names for the context, such as ``get-started:part2``. This will put the image in the ``get-started`` repository and tag it as ``part2``.
 
