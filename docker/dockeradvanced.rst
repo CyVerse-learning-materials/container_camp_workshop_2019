@@ -249,7 +249,7 @@ After you grant access to your code repository, the system returns you to Docker
 
 Automated build repositories rely on the integration with a version control system (GitHub or Gitlab) where your ``Dockerfile`` is kept.
 
-Let's create an automatic build for our ``jupter`` container using the instructions below:
+Let's create an automatic build for our container using the instructions below:
 
 1. Initialize git repository for the `jupyter` directory you created for your ``Dockerfile``
 
@@ -274,9 +274,6 @@ Let's create an automatic build for our ``jupter`` container using the instructi
 	[master (root-commit) cfdf021] Add files and folders
 	 4 files changed, 75 insertions(+)
 	 create mode 100644 Dockerfile
-	 create mode 100644 app.py
-	 create mode 100644 requirements.txt
-	 create mode 100644 templates/index.html
 
 2. Create a new repository on github by navigating to this url - https://github.com/new
 
@@ -306,7 +303,7 @@ Let's create an automatic build for our ``jupter`` container using the instructi
 
 - For now select your GitHub account from the User/Organizations list on the left. The list of repositories change.
 
-- Pick the project to build. In this case ``jupyter``. Type in "Conainer Camp Jupyter" in the Short Description box.
+- Pick the project to build. In this case ``jupyter``. Type in "Container Camp Jupyter" in the Short Description box.
 
 - If you have a long list of repos, use the filter box above the list to restrict the list. After you select the project, the system displays the Create Automated Build dialog.
 
@@ -375,13 +372,12 @@ You may have to manually refresh the page and your build may take several minute
 Exercise 1 (5-10 mins): Updating and automated building
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Add some more cat pics to the `app.py` file
-- Add, Commit and Push it to your github repo
-- Trigger automatic build with a new tag (2.0) on Dockerhub
-- Run an instance to make sure the new pics show up
-- Share your Dockerhub link url on Slack
+- ``git add``, ``commit`` and ``push`` to your GitHub or Gitlab repo
+- Trigger automatic build with a new tag (2.0) on Docker Hub
+- Pull your Docker image from Docker Hub to a new location.
+- Run the instance to make sure it works
 
-3. Managing data in Docker
+3. Managing Data in Docker
 ==========================
 
 It is possible to store data within the writable layer of a container, but there are some limitations:
@@ -390,12 +386,37 @@ It is possible to store data within the writable layer of a container, but there
 
 - A container’s writable layer is tightly coupled to the host machine where the container is running. You can’t easily move the data somewhere else.
 
-Docker offers three different ways to mount data into a container from the Docker host: **volumes**, **bind mounts**, or **tmpfs volumes**. When in doubt, volumes are almost always the right choice.
+- Its better to put your data into the container **AFTER** it is build - this keeps the container size smaller and easier to move across networks. 
+
+Docker offers three different ways to mount data into a container from the Docker host: 
+
+  * **volumes**, 
+
+  * **bind mounts**, 
+
+  * **tmpfs volumes**. 
+  
+When in doubt, volumes are almost always the right choice.
 
 3.1 Volumes 
 ~~~~~~~~~~~
 
-**Volumes** are created and managed by Docker. You can create a volume explicitly using the ``docker volume create`` command, or Docker can create a volume during container creation. When you create a volume, it is stored within a directory on the Docker host (``/var/lib/docker/`` on Linux and check for the location on mac in here https://timonweb.com/posts/getting-path-and-accessing-persistent-volumes-in-docker-for-mac/). When you mount the volume into a container, this directory is what is mounted into the container. A given volume can be mounted into multiple containers simultaneously. When no running container is using a volume, the volume is still available to Docker and is not removed automatically. You can remove unused volumes using ``docker volume prune`` command. 
+**Volumes** are created and managed by Docker. You can create a new volume explicitly using the ``docker volume create`` command, or Docker can create a volume in the container when the container is built. 
+
+When you run a container, you can bring a directory from the host system into the container, and give it a new name and location using the ``-v`` or ``--volume`` flag.
+
+.. code-block:: bash
+
+  $ docker run -v /home/username/your_data_folder:/data username/jupyter:latest
+  
+In the example above, you can mount a folder from your localhost, in your home user directory into the container as a new directory named ``/data``. 
+
+When you create a Docker volume, it is stored within a directory on the Docker Linux host (``/var/lib/docker/`` 
+
+.. Note::
+  File location on Mac OS X is a bit different. `see here<https://timonweb.com/posts/getting-path-and-accessing-persistent-volumes-in-docker-for-mac/>`_. 
+  
+A given volume can be mounted into multiple containers simultaneously. When no running container is using a volume, the volume is still available to Docker and is not removed automatically. You can remove unused volumes using ``docker volume prune`` command. 
 
 |volumes|
 
@@ -408,8 +429,7 @@ Volumes are often a better choice than persisting data in a container’s writab
 - A new volume’s contents can be pre-populated by a container.
 
 .. Note::
-
-	If your container generates non-persistent state data, consider using a ``tmpfs`` mount to avoid storing the data anywhere permanently, and to increase the container’s performance by avoiding writing into the container’s writable layer.
+   If your container generates non-persistent state data, consider using a ``tmpfs`` mount to avoid storing the data anywhere permanently, and to increase the container’s performance by avoiding writing into the container’s writable layer.
 
 3.1.1 Choose the -v or –mount flag for mounting volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -425,6 +445,9 @@ Originally, the ``-v`` or ``--volume`` flag was used for standalone containers a
 - The second field is the path where the file or directory are mounted in the container.
 - The third field is optional, and is a comma-separated list of options, such as ``ro``.
 
+3.1.2 Bind mounts
+^^^^^^^^^^^^^^^^^
+
 ``--mount``: Consists of multiple key-value pairs, separated by commas and each consisting of a ``<key>=<value>`` tuple. The ``--mount`` syntax is more verbose than ``-v`` or ``--volume``, but the order of the keys is not significant, and the value of the flag is easier to understand.
 - The type of the mount, which can be **bind**, **volume**, or **tmpfs**.
 - The source of the mount. For named volumes, this is the name of the volume. For anonymous volumes, this field is omitted. May be specified as **source** or **src**.
@@ -435,7 +458,7 @@ Originally, the ``-v`` or ``--volume`` flag was used for standalone containers a
 
 	The ``--mount`` and ``-v`` examples have the same end result.
 
-3.1.2. Create and manage volumes
+3.1.3 Create and manage volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Unlike a bind mount, you can create and manage volumes outside the scope of any container.
@@ -476,7 +499,7 @@ Remove a volume
 
 	$ docker volume rm my-vol
 
-3.1.3 Populate a volume using a container
+3.1.4 Populate a volume using a container
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This example starts an ``nginx`` container and populates the new volume ``nginx-vol`` with the contents of the container’s ``/var/log/nginx`` directory, which is where Nginx stores its log files.
@@ -639,8 +662,8 @@ Remove the volume:
 
 	$ docker volume rm devtest
 
-3.3 tmpfs
-~~~~~~~~~
+3.3 tmpfs Mounts
+~~~~~~~~~~~~~~~~
 
 **tmpfs mounts:** A tmpfs mount is not persisted on disk, either on the Docker host or within a container. It can be used by a container during the lifetime of the container, to store non-persistent state or sensitive information. For instance, internally, swarm services use tmpfs mounts to mount secrets into a service’s containers.
 
