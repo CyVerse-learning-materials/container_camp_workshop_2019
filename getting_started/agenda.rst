@@ -60,7 +60,7 @@ Twitter hash tag: #cc2019
       -
     * -
       - 9:30-12:00
-      - BYOD/BYOA (Individual projects)
+      - Project pitches (1 min) and BYOD/BYOA
       - Coffee and snacks will be served in A127-29 across the hall (pls no food/bev in A116)
     * -
       - 12:00-1:00
@@ -77,7 +77,8 @@ Twitter hash tag: #cc2019
     * - 
       - 4:00-5:00
       - Optional: Mirror Lab tour or UA HPC Facility tour
-      - https://mirrorlab.arizona.edu
+      - - https://mirrorlab.arizona.edu
+        - https://it.arizona.edu/service/high-performance-computing
     * - 
       - 5:00-6:00
       - Debriefing with instructors
