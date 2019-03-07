@@ -68,7 +68,7 @@ Twitter hash tag: #cc2019
       -
     * - 
       - 1:00-1:30
-      - Container scaling (Open discussion)
+      - Container orchestration (Nirav Merchant)
       -
     * - 
       - 1:30-4:00
