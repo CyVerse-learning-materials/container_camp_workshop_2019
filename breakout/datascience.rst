@@ -53,15 +53,23 @@ Now you can write your python code. Here is an example
 
 |jn_login3.5|
 
-To mount the host directory inside the Jupyter notebook container, you can run the command as below
+To mount the host directory inside the Jupyter notebook container, you must first grant the within-container notebook user or group (NB_UID or NB_GID) write access to the host directory
 
 .. code-block:: bash
 
-	$ docker run --rm -p 8888:8888 -v $PWD:/work -w /work jupyter/minimal-notebook
+	sudo chown 1000 <host directory>
+
+you can run the command as below
+
+.. code-block:: bash
+
+	$ docker run --rm -p 8888:8888 -v $PWD:/work -w /home/jovyan/work jupyter/minimal-notebook
 
 .. Tip::
 
 	If you want to run `Jupyter-lab` instead of the default Jupyter notebook, you can do so by adding `jupyter-lab` at the end of the command.
+
+More options for Datascience jupyter notebook - https://github.com/Paperspace/jupyter-docker-stacks/tree/master/datascience-notebook
 
 To shut down the container once you’re done working, simply hit Ctrl-C in the terminal/command prompt. Your work will all be saved on your actual machine in the path we set in our Docker compose file. And there you have it — a quick and easy way to start using Jupyter notebooks with the magic of Docker.
 
@@ -93,6 +101,8 @@ If you want to mount the host directory inside the Rstudio container, you can do
 	$ docker run -v $PWD:/data -w /data -p 8787:8787 -e DISABLE_AUTH=true --rm rocker/rstudio:3.5.2
 
 And navigate to the `/data` inside the container using the file browser option in Rstudio.
+
+An excellent R tutorial for reproducible research can be found `here <https://ropenscilabs.github.io/r-docker-tutorial/>`_
 
 3. Machine learning using Docker
 ================================
