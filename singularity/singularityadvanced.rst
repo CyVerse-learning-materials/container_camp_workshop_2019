@@ -3,12 +3,12 @@
 
 |singularity|
 
-4.0 Building your own Containers from scratch
+5.0 Building your own Containers from scratch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this section we'll go over the creation of Singularity containers from a recipe file, called Singularity (equivalent to Dockerfile).
 
-4.1 Keeping track of downloaded containers
+5.1 Keeping track of downloaded containers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By default, Singularity uses a temporary cache to hold Docker tarballs:
@@ -33,7 +33,7 @@ As an example, using Singularity we can run a UI program that was built from Doc
 	$ singularity exec docker://rocker/rstudio:latest R
 
 
-4.2 Building Singularity containers
+5.2 Building Singularity containers
 ==================================
 
 Like Docker, which uses a `dockerfile` to build its containers, Singularity uses a file called `Singularity`
@@ -72,7 +72,7 @@ Does it work?
 
 When I try to install software to the image without `sudo` it is denied, because root is the owner of the container. When I use `sudo` I can install software to the container. The software remain in the container after closing the container and restart.
 
-4.2.1: Exercise (~30 minutes): Create a Singularity file
+5.2.1: Exercise (~30 minutes): Create a Singularity file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 `SyLabs User Guide <https://www.sylabs.io/guides/3.0/user-guide/>`_ 
@@ -250,7 +250,7 @@ Run the container:
 
 If you build a `squashfs` container, it is immutable (you cannot `--writable` edit it)
 
-5.1 Using HPC Environments
+6.1 Using HPC Environments
 ==========================
 
 Conducting analyses on high performance computing clusters happens through different patterns of interaction than running analyses on a cloud VM.  When you login, you are on a node that is shared with lots of people, typically called the "login node". Trying to run jobs on the login node is not "high performance" at all (and will likely get you an admonishing email from the system administrator). Login nodes are intended to be used for moving files, editing files, and launching jobs.
@@ -299,7 +299,7 @@ A few things to consider when using HPC systems:
 #. Singularity is in the process of changing image formats.  Depending on the version of Singularity running on the HPC system, new squashFS or .simg formats may not work.
 
 
-5.2 Singularity and MPI
+6.2 Singularity and MPI
 ========================
 
 Singularity supports MPI fairly well.  Since (by default) the network is the same insde and outside the container, the communication between containers usually just works.  The more complicated bit is making sure that the container has the right set of MPI libraries.  MPI is an open specification, but there are several implementations (OpenMPI, MVAPICH2, and Intel MPI to name three) with some non-overlapping feature sets.  If the host and container are running different MPI implementations, or even different versions of the same implementation, hilarity may ensue.
@@ -350,7 +350,7 @@ For a single node, you can also use the **container MPI** to run in parallel (us
   singularity exec ./mycontainer.sif mpirun -np 4 /app.py arg1 arg2
 
 
-5.3 Singularity and GPU Computing
+6.3 Singularity and GPU Computing
 =================================
 
 GPU support in Singularity is fantastic
