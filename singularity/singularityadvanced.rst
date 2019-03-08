@@ -36,11 +36,7 @@ Create a container using a custom Singularity file:
 
 .. code-block:: bash
 
-	$ singularity build --name ubuntu-latest.sif Singularity
-
-In the above command:
-
--	`--name` will create a container named  `ubuntu.simg`
+	$ singularity build ubuntu-latest.sif Singularity
 
 We've already covered how you can pull an existing container from Docker Hub, but we can also build a Singularity container from docker using the build command:
 
@@ -70,7 +66,7 @@ In order to make these changes permanant, I need to rebuild the sandbox as a ``.
 
 	$ sudo singularity build ubuntu-latest.sif ubuntu-latest/
 
-.. Question::
+.. Note::
 
 	Why is creating containers in this way a **bad** idea?
 
@@ -139,7 +135,9 @@ The additional sections of a Singularity file include:
 *  %runscript - executes a script when the container runs
 *  %test - runs a test on the build of the container
 
-- Setting up Singularity file system
+
+**Setting up Singularity file system**
+--------------------------------------
 
 - **Help**
 
