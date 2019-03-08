@@ -46,9 +46,9 @@ We've already covered how you can pull an existing container from Docker Hub, bu
 
 .. code-block:: bash
 
-	$ sudo singularity build --writable ubuntu-latest.sif  docker://ubuntu
+	$ sudo singularity build --sandbox ubuntu-latest/  docker://ubuntu
 
-	$ singularity shell ubuntu-latest.sif
+	$ singularity shell --writable ubuntu-latest/
 
 	Singularity ubuntu-latest.sif:~> apt-get update
   
@@ -62,7 +62,17 @@ Does it work?
 
 	Singularity ubuntu-latest.sif:~> apt-get update
 
-When I try to install software to the image without `sudo` it is denied, because root is the owner of the container. When I use ``sudo`` I can install software to the container. The software remain in the container after closing the container and restart.
+When I try to install software to the image without `sudo` it is denied, because root is the owner of the container. When I use ``sudo`` I can install software to the container. The software remain in the sandbox container after closing the container and restart.
+
+In order to make these changes permanant, I need to rebuild the sandbox as a ``.sif`` image
+
+.. code-block:: bash
+
+	$ sudo singularity build ubuntu-latest.sif ubuntu-latest/
+
+.. Question::
+
+	Why is creating containers in this way a **bad** idea?
 
 5.2.1: Exercise (~30 minutes): Create a Singularity file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
