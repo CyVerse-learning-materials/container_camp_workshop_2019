@@ -359,7 +359,7 @@ The University of Arizona HPS `Singularity examples <https://docs.hpc.arizona.ed
 7.0 Cryptographic Security
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`Documentation<https://www.sylabs.io/guides/3.0/user-guide/signNverify.html?highlight=sign>`_
+`Documentation <https://www.sylabs.io/guides/3.0/user-guide/signNverify.html>`_
 
 .. |singularity| image:: ../img/singularity.png
   :height: 200
