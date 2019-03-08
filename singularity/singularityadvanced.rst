@@ -3,9 +3,255 @@
 
 |singularity|
 
+5.0 Building your own Containers from scratch
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Using HPC Environments
-=========================
+In this section we'll go over the creation of Singularity containers from a recipe file, called Singularity (equivalent to Dockerfile).
+
+5.1 Keeping track of downloaded containers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+By default, Singularity uses a temporary cache to hold Docker tarballs:
+
+.. code-block:: bash
+
+  $ ls ~/.singularity
+
+You can change these by specifying the location of the cache and temporary directory on your localhost:
+
+.. code-block:: bash
+
+  $ sudo mkdir tmp
+  $ sudo mkdir scratch
+
+  $ SINGULARITY_TMPDIR=$PWD/scratch SINGULARITY_CACHEDIR=$PWD/tmp singularity --debug pull --name ubuntu-tmpdir.sif docker://ubuntu
+
+As an example, using Singularity we can run a UI program that was built from Docker, here I show the IDE RStudio `tidyverse` from `Rocker <https://hub.docker.com/r/rocker/rstudio/>`_
+
+.. code-block:: bash
+
+	$ singularity exec docker://rocker/rstudio:latest R
+
+
+5.2 Building Singularity containers
+==================================
+
+Like Docker, which uses a `dockerfile` to build its containers, Singularity uses a file called `Singularity`
+
+When you are building locally, you can name this file whatever you wish, but a better practice is to put it in a directory and name it `Singularity` - as this will help later on when developing on Singularity-Hub and Github.
+
+Create a container using a custom Singularity file:
+
+.. code-block:: bash
+
+	$ singularity build --name ubuntu-latest.sif Singularity
+
+In the above command:
+
+-	`--name` will create a container named  `ubuntu.simg`
+
+We've already covered how you can pull an existing container from Docker Hub:
+
+.. code-block:: bash
+
+	$ sudo singularity build --writable ubuntu-latest.sif  docker://ubuntu
+
+	$ singularity shell ubuntu-latest.sif
+
+	Singularity ubuntu-latest.sif:~> apt-get update
+  
+Does it work?
+
+.. code-block:: bash
+
+	$ sudo singularity shell ubuntu-latest.sif
+
+	Singularity: Invoking an interactive shell within container...
+
+	Singularity ubuntu-latest.sif:~> apt-get update
+
+When I try to install software to the image without `sudo` it is denied, because root is the owner of the container. When I use `sudo` I can install software to the container. The software remain in the container after closing the container and restart.
+
+5.2.1: Exercise (~30 minutes): Create a Singularity file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`SyLabs User Guide <https://www.sylabs.io/guides/3.0/user-guide/>`_ 
+
+A ``Singularity`` file can be hosted on Github and will be auto-detected by `Singularity-Hub <https://www.singularity-hub.org/>`_ when you set up your container Collection.
+
+Building your own containers requires that you have `sudo` privileges - therefore you'll need to develop these on your local machine or on a VM that you can gain root access on.
+
+- The Header
+
+The top of the file, selects the base OS for the container. `Bootstrap:` references a registry (e.g. ``docker`` for DockerHub, ``debootstrap``, or ``shub`` for Singularity-Hub). 
+
+``From:`` selects the tag name. 
+
+.. code-block:: bash
+
+	Bootstrap: shub
+	From: vsoch/hello-world
+
+Pulls a container from Singularity Hub (< v2.6.1)
+
+Using `debootstrap` with a build that uses a mirror:
+
+.. code-block:: bash
+
+	BootStrap: debootstrap
+	OSVersion: xenial
+	MirrorURL: http://us.archive.ubuntu.com/ubuntu/
+
+Using a `localimage` to build:
+
+.. code-block:: bash
+
+	Bootstrap: localimage
+	From: /path/to/container/file/or/directory
+
+Using CentOS-like container:
+
+.. code-block:: bash
+
+	Bootstrap: yum
+	OSVersion: 7
+	MirrorURL: http://mirror.centos.org/centos-7/7/os/x86_64/
+	Include:yum
+
+Note: to use `yum` to build a container you should be operating on a RHEL system, or an Ubuntu system with `yum` installed.
+
+The container registries which Singularity uses are listed above in Section 3.1.
+
+- The Singularity file uses sections to specify the dependencies, environmental settings, and runscripts when it build.
+
+*  %help - create text for a help menu associated with your container
+*  %setup - executed on the host system outside of the container, after the base OS has been installed.
+*  %files - copy files from your host system into the container
+*  %labels - store metadata in the container
+*  %environment - loads environment variables at the time the container is run (not built)
+*  %post - set environment variables during the build
+*  %runscript - executes a script when the container runs
+*  %test - runs a test on the build of the container
+
+- Apps
+
+In Singularity 2.4+ we can build a container which does multiple things, e.g. each app has its own runscripts. These use the prefix `%app` before the sections mentioned above. The `%app` architecture can exist in addition to the regular `%post` and `%runscript` sections.
+
+.. code-block:: bash
+
+	Bootstrap: docker
+	From: ubuntu
+
+	% environment
+
+	%labels
+
+	##############################
+	# foo
+	##############################
+
+	%apprun foo
+    	    exec echo "RUNNING FOO"
+
+	%applabels foo
+   	    BESTAPP=FOO
+   	    export BESTAPP
+
+	%appinstall foo
+ 	    touch foo.exec
+
+	%appenv foo
+    	    SOFTWARE=foo
+   	    export SOFTWARE
+
+	%apphelp foo
+   	    This is the help for foo.
+
+	%appfiles foo
+	    avocados.txt
+
+
+	##############################
+	# bar
+	##############################
+
+	%apphelp bar
+    	    This is the help for bar.
+
+	%applabels bar
+   	    BESTAPP=BAR
+   	    export BESTAPP
+
+	%appinstall bar
+    	    touch bar.exec
+
+	%appenv bar
+    	    SOFTWARE=bar
+    	    export SOFTWARE
+
+- Setting up Singularity file system
+
+`%help` section can be as verbose as you want
+
+.. code-block:: bash
+
+	Bootstrap: docker
+	From: ubuntu
+
+	%help
+	This is the container help section.
+
+`%setup` commands are executed on the localhost system outside of the container - these files could include necessary build dependencies. We can copy files to the `$SINGULARITY_ROOTFS` file system can be done during `%setup`
+
+`%files` include any files that you want to copy from your localhost into the container.
+
+`%post` includes all of the environment variables and dependencies that you want to see installed into the container at build time.
+
+`%environment` includes the environment variables which we want to be run when we start the container
+
+`%runscript` does what it says, it executes a set of commands when the container is run.
+
+Example Singularity file bootstrapping a `Docker <https://hub.docker.com/_/ubuntu/>`_ Ubuntu (16.04) image.
+
+.. code-block:: bash
+
+    BootStrap: docker
+    From: ubuntu:16.04
+
+    %post
+        apt-get -y update
+        apt-get -y install fortune cowsay lolcat
+	
+	# create bind points for additional storage
+	mkdir /scratch 
+
+    %environment
+        export LC_ALL=C
+        export PATH=/usr/games:$PATH
+
+    %runscript
+        fortune | cowsay | lolcat
+
+    %labels
+    	Maintainer Tyson Swetnam
+	Version v0.1
+
+Build the container:
+
+.. code-block:: bash
+
+    singularity build --name cowsay_container.simg Singularity
+
+Run the container:
+
+.. code-block:: bash
+
+    singularity run cowsay.simg
+
+If you build a `squashfs` container, it is immutable (you cannot `--writable` edit it)
+
+6.1 Using HPC Environments
+==========================
 
 Conducting analyses on high performance computing clusters happens through different patterns of interaction than running analyses on a cloud VM.  When you login, you are on a node that is shared with lots of people, typically called the "login node". Trying to run jobs on the login node is not "high performance" at all (and will likely get you an admonishing email from the system administrator). Login nodes are intended to be used for moving files, editing files, and launching jobs.
 
@@ -53,8 +299,8 @@ A few things to consider when using HPC systems:
 #. Singularity is in the process of changing image formats.  Depending on the version of Singularity running on the HPC system, new squashFS or .simg formats may not work.
 
 
-2. Singularity and MPI
-======================
+6.2 Singularity and MPI
+========================
 
 Singularity supports MPI fairly well.  Since (by default) the network is the same insde and outside the container, the communication between containers usually just works.  The more complicated bit is making sure that the container has the right set of MPI libraries.  MPI is an open specification, but there are several implementations (OpenMPI, MVAPICH2, and Intel MPI to name three) with some non-overlapping feature sets.  If the host and container are running different MPI implementations, or even different versions of the same implementation, hilarity may ensue.
 
@@ -104,8 +350,8 @@ For a single node, you can also use the **container MPI** to run in parallel (us
   singularity exec ./mycontainer.sif mpirun -np 4 /app.py arg1 arg2
 
 
-3. Singularity and GPU Computing
-================================
+6.3 Singularity and GPU Computing
+=================================
 
 GPU support in Singularity is fantastic
 
@@ -144,12 +390,6 @@ For TensorFlow, you can directly pull their latest GPU image and utilize it as f
 .. Note::
 
     You probably noticed that we check out the models repository into your $HOME directory. This is because your $HOME and $WORK directories are only available inside the container if the root folders /home and /work exist inside the container. In the case of tensorflow-latest-gpu.img, the /work directory does not exist, so any files there are inaccessible to the container.
-
-
-Hands-On Exercises
-~~~~~~~~~~~~~~~~~~
-
-Singularity on Atmosphere.
 
 
 
