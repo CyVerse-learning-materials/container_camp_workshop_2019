@@ -170,32 +170,29 @@ Example Singularity file bootstrapping a `Docker <https://hub.docker.com/_/ubunt
 
 .. code-block:: bash
 
-    BootStrap: docker
-    From: ubuntu:16.04
+	BootStrap: docker
+	From: ubuntu:18.04
 
-    %post
-        apt-get -y update
-        apt-get -y install fortune cowsay lolcat
-	
-	# create bind points for additional storage
-	mkdir /scratch 
+	%post
+   	   apt-get -y update
+   	   apt-get -y install fortune cowsay lolcat
 
-    %environment
-        export LC_ALL=C
-        export PATH=/usr/games:$PATH
+	%environment
+   	   export LC_ALL=C
+   	   export PATH=/usr/games:$PATH
 
-    %runscript
-        fortune | cowsay | lolcat
+	%runscript
+   	   fortune | cowsay | lolcat
 
-    %labels
-    	Maintainer Tyson Swetnam
-	Version v0.1
+	%labels
+   	   Maintainer Tyson Swetnam
+   	   Version v0.1
 
 Build the container:
 
 .. code-block:: bash
 
-    singularity build --name cowsay.sif Singularity
+    singularity build cowsay.sif Singularity
 
 Run the container:
 
@@ -349,10 +346,12 @@ For TensorFlow, you can directly pull their latest GPU image and utilize it as f
 
     You probably noticed that we check out the models repository into your $HOME directory. This is because your $HOME and $WORK directories are only available inside the container if the root folders /home and /work exist inside the container. In the case of tensorflow-latest-gpu.img, the /work directory does not exist, so any files there are inaccessible to the container.
 
-
-
 The University of Arizona HPS `Singularity examples <https://docs.hpc.arizona.edu/display/UAHPC/Containers>`_. 
 
+7.0 Cryptographic Security
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`Documentation<https://www.sylabs.io/guides/3.0/user-guide/signNverify.html?highlight=sign>`_
 
 .. |singularity| image:: ../img/singularity.png
   :height: 200
