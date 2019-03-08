@@ -112,6 +112,6 @@ Twitter hash tag: #cc2019
       - Coffee and snacks with networking
       - Served in A127-29 across the hall (pls no food/bev in A116)
     * - 
-      - 3:00-5:00
+      - 3:30-5:00
       - Team presentations
       -
