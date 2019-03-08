@@ -366,18 +366,107 @@ Singularity containers contain `runscripts <https://www.sylabs.io/guides/3.0/use
 	                ||----w |
 	                ||     ||
 
-# Exercises
-###########
+# Exercise - 1
+##############
 
-Now that you know how to run containers from Docker, I want you to run a Singular container from `simple-script` Docker image that you create on Day 1 of the workshop. Here are the brief steps
+Now that you know how to run containers from Docker, I want you to run a Singular container from `simple-script` Docker image that you create on Day 1 of the workshop. 
 
-1. Go to `Docker hub <https://hub.docker.com/>`_ and look the Dockerhub image that you built on Day 1
+.. Note::
+
+	If you don't have ``simple-script`` you can use my image on docker hub - https://hub.docker.com/r/upendradevisetty/simple-script-auto
+
+Here are the brief steps:
+
+1. Go to `Docker hub <https://hub.docker.com/>`_ and look for the Dockerhub image that you built on Day 1
 
 2. Use ``singularity pull`` command to pull the Docker image onto your working directory on the Atmosphere
 
-3. Use ``singularity run`` command to launch a container from the Docker image and check to see if it is working
+3. Use ``singularity run`` command to launch a container from the Docker image and check to see if you get the same output that as you get from running ``docker run``
 
-4. If you have access to HPC, then you can try to run the container on HPC and see if it works there.
+4.3 Running a container on HPC
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For running a container on HPC, you need to have Singularity module available on HPC. Let's first look to see if the Singularity module is available on HPC or not
+
+.. warning::
+
+	The following instructions are from running on UA HPC. It may or may not work on other HPC. Please refer to HPC documentation to find similar commands
+
+.. code-block :: bash
+
+	$ module avail singularity
+	---------------------------------------------------------- /cm/shared/uamodulefiles -----------------------------------------------------------
+	singularity/2/2.6.1  singularity/3/3.0.2  singularity/3/3.1  
+
+You can see that there are three different versions of Singularity are available. For this workshop, we will use ``singularity/3/3.1``. Let's load it now
+
+.. code-block:: bash
+
+	$ module load singularity/3/3.1
+
+4.3.1 Running fastqc
+
+Let's run fastqc on UA HPC 
+
+.. code-block:: bash
+
+	$ mkdir fastqc && cd fastqc
+
+	$ wget https://de.cyverse.org/dl/d/A48695A7-69A7-46C1-B6BB-E036F4922EB2/test.R1.fq.gz
+
+Write a pbs script (``fastqc_job.sh``) for job submission
+
+.. code-block:: bash
+
+	#!/bin/bash
+	# Your job will use 1 node, 1 core, and 1gb of memory total.
+	#PBS -q standard
+	#PBS -l select=1:ncpus=2:mem=1gb:pcmem=6gb
+
+	### Specify a name for the job
+	#PBS -N fastqc
+
+	### Specify the group name
+	#PBS -W group_list=nirav
+
+	### Used if job requires partial node only
+	#PBS -l place=pack:shared
+
+	### CPUtime required in hhh:mm:ss.
+	### Leading 0's can be omitted e.g 48:0:0 sets 48 hours
+	#PBS -l cput=0:15:0
+
+	### Walltime is created by cputime divided by total cores.
+	### This field can be overwritten by a longer time
+	#PBS -l walltime=0:15:0
+
+	date
+	module load singularity/3/3.1
+	cd /extra/upendradevisetty/fastqc
+	singularity pull docker://quay.io/biocontainers/fastqc:0.11.8--1
+	singularity exec fastqc_0.11.8--1.sif fastqc test.R1.fq.gz
+	date
+
+Submit the job now to UAHPC
+
+.. code-block:: bash
+
+	$ qsub fastqc_job.sh
+
+After the job is submitted, expect to get these outputs
+
+.. code-block:: bash
+
+	-rwxr-xr-x 1 upendradevisetty nirav 260M Mar  8 09:29 fastqc_0.11.8--1.sif
+	-rw------- 1 upendradevisetty nirav 3.4K Mar  8 09:30 fastqc.e1875372
+	-rw-r--r-- 1 upendradevisetty nirav 434K Mar  8 09:30 test.R1_fastqc.zip
+	-rw-r--r-- 1 upendradevisetty nirav 625K Mar  8 09:30 test.R1_fastqc.html
+	-rw------- 1 upendradevisetty nirav  241 Mar  8 09:30 fastqc.o1875372
+
+# Exercsise -2
+##############
+
+- For those of you, who have access to HPC, try to run the container from ``simple-script`` Dockerhub on HPC.
 
 .. |singularity| image:: ../img/singularity.png
   :height: 200
