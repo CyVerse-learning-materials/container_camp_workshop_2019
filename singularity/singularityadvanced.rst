@@ -6,8 +6,10 @@
 4.0 Building your own Containers from scratch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-4.1: Keeping track of downloaded containers
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In this section we'll go over the creation of Singularity containers from a recipe file, called Singularity (equivalent to Dockerfile).
+
+4.1 Keeping track of downloaded containers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By default, Singularity uses a temporary cache to hold Docker tarballs:
 
