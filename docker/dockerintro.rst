@@ -26,6 +26,20 @@ The getting started guide on Docker has detailed instructions for setting up Doc
 .. Note::
 
 
+	Depending on how you've installed Docker on your system, you might see a ``permission denied`` error after running the above command. If you're on Linux, you may need to prefix your Docker commands with sudo. Alternatively to run docker command without sudo, you need to add your user (who has root privileges) to docker group. 
+	For this run: 
+
+	Create the docker group::
+
+		$ sudo groupadd docker
+	
+	Add your user to the docker group::
+
+		$ sudo usermod -aG docker $USER
+
+	Log out and log back in so that your group membership is re-evaluated
+	
+	
 2.1 XSEDE Jetstream / CyVerse Atmosphere Clouds
 ===============================================
 
@@ -45,25 +59,11 @@ Type in the following:
 	remote: Compressing objects: 100% (7/7), done.
 	remote: Total 38 (delta 1), reused 0 (delta 0), pack-reused 31
 	Unpacking objects: 100% (38/38), done.
-	* docker was updated successfully
-
-
-
-
-	Depending on how you've installed Docker on your system, you might see a ``permission denied`` error after running the above command. If you're on Linux, you may need to prefix your Docker commands with sudo. Alternatively to run docker command without sudo, you need to add your user (who has root privileges) to docker group. 
-	For this run: 
-
-	Create the docker group::
-
-		$ sudo groupadd docker
+	* docker was updated successfully	
 	
-	Add your user to the docker group::
+	
 
-		$ sudo usermod -aG docker $USER
-
-	Log out and log back in so that your group membership is re-evaluated
-
-2.1 Testing Docker installation
+2.2 Testing Docker installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once you are done installing Docker, test your Docker installation by running the following command to make sure you are using version 1.13 or higher:
