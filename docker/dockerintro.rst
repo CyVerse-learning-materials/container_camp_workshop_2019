@@ -45,6 +45,7 @@ Type in the following:
 	Unpacking objects: 100% (38/38), done.
 	* docker was updated successfully
 	You shouldn't need to use ezd again on this system, unless you want to update docker itself
+.. code-block:: bash
 
 	Depending on how you've installed Docker on your system, you might see a ``permission denied`` error after running the above command. If you're on Linux, you may need to prefix your Docker commands with sudo. Alternatively to run docker command without sudo, you need to add your user (who has root privileges) to docker group. 
 	For this run: 
