@@ -36,7 +36,9 @@ Start a featured instance on Jetstream [needs to insert link to Jetstream's laun
 Type in the following:
 
 .. code-block:: bash
+
 	$ ezd
+	
 	* Updating ez docker and installing docker (this may take a few minutes, coffee break!)
 	Cloning into '/opt/cyverse-ez-docker'...
 	remote: Counting objects: 38, done.
