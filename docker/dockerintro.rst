@@ -40,30 +40,8 @@ The getting started guide on Docker has detailed instructions for setting up Doc
 	Log out and log back in so that your group membership is re-evaluated
 	
 	
-2.1 XSEDE Jetstream / CyVerse Atmosphere Clouds
-===============================================
-
-CyVerse staff have deployed an Ansible playbooks called ``ez`` installation which includes Docker that only requires you to type a short line of code.
-
-Start a featured instance on Jetstream [needs to insert link to Jetstream's launching instance].
-
-Type in the following:
-
-.. code-block:: bash
-
-	$ ezd
 	
-	* Updating ez docker and installing docker (this may take a few minutes, coffee break!)
-	Cloning into '/opt/cyverse-ez-docker'...
-	remote: Counting objects: 38, done.
-	remote: Compressing objects: 100% (7/7), done.
-	remote: Total 38 (delta 1), reused 0 (delta 0), pack-reused 31
-	Unpacking objects: 100% (38/38), done.
-	* docker was updated successfully	
-	
-	
-
-2.2 Testing Docker installation
+2.1 Testing Docker installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once you are done installing Docker, test your Docker installation by running the following command to make sure you are using version 1.13 or higher:
