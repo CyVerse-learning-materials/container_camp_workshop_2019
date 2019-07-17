@@ -508,50 +508,36 @@ Remove a volume
 3.3.1 Populate a volume using a container
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-TODO!!! Change this below.
-
-This example starts an ``nginx`` container and populates the new volume ``jupyter-vol`` with the contents of the container’s ``/var/log/nginx`` directory, which is where Nginx stores its log files.
+This example starts an ``alpine`` container and populates the new volume ``output-vol`` with the some output created by the container.
 
 .. code-block:: bash
 
-	$ docker run -d -p 8889:80 --name=notebooktest --mount source=jupyter-vol,target=/var/log/jupyter $YOUR_DOCKERHUB_USERNAME/mynotebook:latest
+	docker volume create output-vol
+	docker run --name=data-app --mount source=output-vol,target=/data alpine sh -c 'env >> /data/container-env.txt'
 
-TODO!!! Change this below to something sensible.
-
-So, we now have a copy of Jupyter volume running inside a Docker container on our machine, and our host machine's port 5000 maps directly to that copy of Jupyter's port 80. Let's use curl to do a quick test request:
+Use ``docker inspect output-vol`` to see where the volume data lives on your host, and then use ``cat`` to confirm that it contains the output created by the container.
 
 .. code-block:: bash
 	
-	cat jupyter-vol/_data/access.log
+	docker volume inspect output-vol
+	sudo cat /var/lib/docker/volumes/output-vol/_data/container-env.txt
 
-Use ``docker inspect jupyter-vol`` to verify that the volume was created and mounted correctly. Look for the Mounts section:
+You should see something like:
 
-.. code-block:: bash
+.. code-block::
 
-	"Mounts": [
-	            {
-	                "Type": "volume",
-	                "Name": "jupyter-vol",
-	                "Source": "/var/lib/docker/volumes/jupyter-vol/_data",
-	                "Destination": "/var/log/jupyter",
-	                "Driver": "local",
-	                "Mode": "z",
-	                "RW": true,
-	                "Propagation": ""
-	            }
-	        ],
+	HOSTNAME=790e13bba28a
+	SHLVL=1
+	HOME=/root
+	PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+	PWD=/
 
-This shows that the mount is a volume, it shows the correct source and destination, and that the mount is read-write.
-
-After running either of these examples, run the following commands to clean up the containers and volumes.
+After running either of these examples, run the following commands to clean up the container and volume.
 
 .. code-block:: bash
 
-	$ docker stop notebooktest
-
-	$ docker rm notebooktest
-
-	$ docker volume rm jupyter-vol
+	docker rm data-app
+	docker volume rm output-vol
 
 3.4 Bind mounts
 ~~~~~~~~~~~~~~~
@@ -573,25 +559,25 @@ After running either of these examples, run the following commands to clean up t
 3.2.1 Start a container with a bind mount
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: bash
-
-	$ mkdir data
-
-	$ docker run -p 8888:8888 --name notebooktest --mount type=bind,source="$(pwd)"/data,target=/var/log/jupyter $YOUR_DOCKERHUB_USERNAME/mynotebook:latest
-
-Use `docker inspect notebooktest` to verify that the bind mount was created correctly. Look for the "Mounts" section
-
-.. code-block::
-
-	$ docker inspect notebooktest
-
-This shows that the mount is a bind mount, it shows the correct source and target, it shows that the mount is read-write, and that the propagation is set to rprivate.
-
-Stop the container:
+Create a ``bind-data`` directory in your home directory.
 
 .. code-block:: bash
 
-	$ docker rm -f juptertest
+	cd ~
+	mkdir -p ~/bind-data
+
+Run a container, mounting this directory inside the container, and the container should create some data in there.
+
+.. code-block:: bash
+
+	docker run --mount type=bind,source="$(pwd)"/bind-data,target=/data alpine sh -c 'env >> /data/container-env.txt'
+
+Check that the output looks right.
+
+.. code-block:: bash
+	
+	cat ~/bind-data/container-env.txt
+
 
 3.4.1 Use a read-only bind mount
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -602,58 +588,14 @@ This example modifies the one above but mounts the directory as a read-only bind
 
 .. code-block:: bash
 
-	$ docker run -d -p 8888:8888 --name notebooktest --mount type=bind,source="$(pwd)"/data,target=/var/log/jupyter,readonly $YOUR_DOCKERHUB_USERNAME/mynotebook:latest
+	docker run --mount type=bind,source="$(pwd)"/bind-data,target=/data,readonly alpine sh -c 'ls -al /data/ && env >> /data/container-env.txt'
 
-Use ``docker inspect notebooktest`` to verify that the bind mount was created correctly. Look for the Mounts section:
-
-Stop the container:
+You should see an error message about not being able to write to a read-only file system.
 
 .. code-block:: bash
 
-	$ docker rm -f notebooktest
+	sh: can't create /data/container-env.txt: Read-only file system
 
-Remove the volume:
-
-TODO!!! Check this below.
-
-.. code-block:: bash
-
-	$ docker volume rm notebooktest
-
-3.3 tmpfs Mounts
-~~~~~~~~~~~~~~~~
-
-**tmpfs mounts:** A tmpfs mount is not persisted on disk, either on the Docker host or within a container. It can be used by a container during the lifetime of the container, to store non-persistent state or sensitive information. For instance, internally, swarm services use tmpfs mounts to mount secrets into a service’s containers.
-
-|tmpfs|
-
-**Volumes** and **bind mounts** are mounted into the container’s filesystem by default, and their contents are stored on the host machine. There may be cases where you do not want to store a container’s data on the host machine, but you also don’t want to write the data into the container’s writable layer, for performance or security reasons, or if the data relates to non-persistent application state. An example might be a temporary one-time password that the container’s application creates and uses as-needed. To give the container access to the data without writing it anywhere permanently, you can use a tmpfs mount, which is only stored in the host machine’s memory (or swap, if memory is low). When the container stops, the tmpfs mount is removed. If a container is committed, the tmpfs mount is not saved.
-
-.. code-block:: bash
-
-	$ docker run -d -p 8888:8888 --name notebooktest --mount type=tmpfs,target=/var/log/jupyter $YOUR_DOCKERHUB_USERNAME/mynotebook:latest
-
-Use `docker inspect notebooktest` to verify that the bind mount was created correctly. Look for the Mounts section:
-
-.. code-block:: bash
-
-	$ docker inspect notebooktest
-
-You can see from the above output that the ``Source`` filed is empty which indicates that the contents are not avaible on Docker host or host file system. 
-
-Stop the container:
-
-.. code-block:: bash
-
-	$ docker rm -f notebooktest
-
-TODO!!! Test this below.
-
-Remove the volume:
-
-.. code-block:: bash
-
-	$ docker volume rm notebooktest
 
 4. Docker Compose for multi-container apps
 ==========================================
@@ -887,7 +829,6 @@ And that’s it! You should be able to see the Flask application running on ``ht
 
 .. |docker-compose| image:: ../img/dc-1.png
   :width: 500
-  :height: 450 
 
 .. |jn_ss| image:: ../img/jn_ss.png
   :width: 500
