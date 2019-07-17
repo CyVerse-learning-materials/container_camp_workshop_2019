@@ -90,7 +90,7 @@ Now, put it all together to tag the image. Run docker tag image with your userna
 
 .. code-block:: bash
 
-	$ docker tag username/appname:latest username/appname:1.0
+	$ docker tag $YOUR_DOCKERHUB_USERNAME/mynotebook:latest $YOUR_DOCKERHUB_USERNAME/mynotebook:1.0
 
 1.1.3 Publish the image
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -99,7 +99,7 @@ Upload your tagged image to the Dockerhub repository
 
 .. code-block:: bash
 
-	$ docker push username/appname:1.0	
+	$ docker push $YOUR_DOCKERHUB_USERNAME/mynotebook:1.0	
 
 Once complete, the results of this upload are publicly available. If you log in to Docker Hub, you will see the new image there, with its pull command.
 
@@ -112,7 +112,7 @@ Congrats! You just made your first Docker image and shared it with the world!
 
 Let's try to run the image from the remote repository on Cloud server by logging into CyVerse Atmosphere, `launching an instance <../atmosphere/boot.html>`_
 
-First install Docker on Atmosphere using from here ``https://docs.docker.com/install/linux/docker-ce/ubuntu`` or alternatively you can use ``ezd`` command which is a short-cut command for installing Docker on Atmosphere
+First install Docker on Atmosphere using from here https://docs.docker.com/install/linux/docker-ce/ubuntu or alternatively you can use ``ezd`` command which is a short-cut command for installing Docker on Atmosphere
 
 .. code-block:: bash
 
@@ -122,7 +122,7 @@ Now run the following command to run the docker image from Dockerhub
 
 .. code-block:: bash
 
-	$ sudo docker run -d -p 8888:8888 --name jupyter username/jupyter:1.0
+	$ docker run -p 8888:8888 --name notebooktest $YOUR_DOCKERHUB_USERNAME/mynotebook:1.0
 
 .. Note::
 
@@ -150,11 +150,11 @@ Run a container from ``registry`` Dockerhub image
 
 	$ docker run -d -p 5000:5000 --name registry registry:2
 
-Run ``docker ps -l`` to check the recent container from this Docker image
+Run ``docker ps --latest`` to check the recent container from this Docker image
 
 .. code-block:: bash
 
-	$ docker ps -l
+	$ docker ps --latest
 	CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
 	6e44a0459373        registry:2          "/entrypoint.sh /e..."   11 seconds ago      Up 10 seconds       0.0.0.0:5000->5000/tcp   registry
 
@@ -167,7 +167,7 @@ Next step is to tag your image under the registry namespace and push it there
 
 	$ REGISTRY=localhost:5000
 
-	$ docker tag $YOUR_DOCKERHUB_USERNAME/myfirstapp:1.0 $REGISTRY/$(whoami)/myfirstapp:1.0
+	$ docker tag $YOUR_DOCKERHUB_USERNAME/mynotebook:1.0 $REGISTRY/$(whoami)/mynotebook:1.0
 
 1.2.2 Publish the image into the local registry
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -176,8 +176,8 @@ Finally push the image to the local registry
 
 .. code-block:: bash
 
-	$ docker push $REGISTRY/$(whoami)/myfirstapp:1.0
-	The push refers to a repository [localhost:5000/upendra_35/myfirstapp]
+	$ docker push $REGISTRY/$(whoami)/mynotebook:1.0
+	The push refers to a repository [localhost:5000/julianp/mynotebook]
 	64436820c85c: Pushed 
 	831cff83ec9e: Pushed 
 	c3497b2669a8: Pushed 
@@ -193,7 +193,7 @@ You can also pull the image from the local repository similar to how you pull it
 
 .. code-block:: bash
 
-	$ docker run -d -P --name=myfirstapplocal $REGISTRY/$(whoami)/myfirstapp:1.0
+	$ docker run -P --name=mynotebooklocal $REGISTRY/$(whoami)/mynotebook:1.0
 
 2. Automated Docker image building from GitHub
 ==============================================
@@ -251,12 +251,12 @@ Automated build repositories rely on the integration with a version control syst
 
 Let's create an automatic build for our container using the instructions below:
 
-1. Initialize git repository for the `jupyter` directory you created for your ``Dockerfile``
+1. Initialize git repository for the `mynotebook` directory you created for your ``Dockerfile``
 
 .. code-block:: bash
 
 	$ git init
-	Initialized empty Git repository in /home/username/github/repository_name/
+	Initialized empty Git repository in /home/julianp/mynotebook/.git/
 	
 	$ git status
 	On branch master
@@ -266,18 +266,25 @@ Let's create an automatic build for our container using the instructions below:
 	Untracked files:
   	(use "git add <file>..." to include in what will be committed)
 
-		Dockerfileg
+		Dockerfile
+		model.py
 
 	nothing added to commit but untracked files present (use "git add" to track) 
 
-	$ git add * && git commit -m"Add files and folders"
-	[master (root-commit) cfdf021] Add files and folders
-	 4 files changed, 75 insertions(+)
+	$ git add * && git commit -m "Add files and folders"
+	[master (root-commit) a4f732a] Add files and folders
+	 2 files changed, 10 insertions(+)
 	 create mode 100644 Dockerfile
+	 create mode 100644 model.py
 
-2. Create a new repository on github by navigating to this url - https://github.com/new
+
+2. Create a new repository on github by navigating to this URL - https://github.com/new
 
 |create_repo|
+
+.. Note::
+
+	Don't initialize the repository with a README and don't add a license.
 
 3. Push the repository to github
 
@@ -285,7 +292,7 @@ Let's create an automatic build for our container using the instructions below:
 
 .. code-block:: bash
 
-	$ git remote add origin https://github.com/username/jupyter.git
+	$ git remote add origin https://github.com/<your-github-username>/mynotebook.git
 
 	$ git push -u origin master
 	Counting objects: 7, done.
@@ -293,7 +300,7 @@ Let's create an automatic build for our container using the instructions below:
 	Compressing objects: 100% (5/5), done.
 	Writing objects: 100% (7/7), 1.44 KiB | 0 bytes/s, done.
 	Total 7 (delta 0), reused 0 (delta 0)
-	To https://github.com/username/jupyter.git
+	To https://github.com/<your-github-username>/mynotebook.git
 	 * [new branch]      master -> master
 	Branch master set up to track remote branch master from origin.
 
@@ -303,7 +310,7 @@ Let's create an automatic build for our container using the instructions below:
 
 - For now select your GitHub account from the User/Organizations list on the left. The list of repositories change.
 
-- Pick the project to build. In this case ``jupyter``. Type in "Container Camp Jupyter" in the Short Description box.
+- Pick the project to build. In this case ``mynotebook``. Type in "Jupyter Test" in the Short Description box.
 
 - If you have a long list of repos, use the filter box above the list to restrict the list. After you select the project, the system displays the Create Automated Build dialog.
 
@@ -343,7 +350,7 @@ It can take a few minutes for your automated build job to be created. When the s
 
 7. Manually Trigger a Build
 
-Before you trigger an automated build by pushing to your GitHub ``jupyter`` repo, you'll trigger a manual build. Triggering a manual build ensures everything is working correctly.
+Before you trigger an automated build by pushing to your GitHub ``mynotebook`` repo, you'll trigger a manual build. Triggering a manual build ensures everything is working correctly.
 
 From your automated build page choose ``Build Settings``
 
@@ -403,21 +410,6 @@ When in doubt, volumes are almost always the right choice.
 
 **Volumes** are created and managed by Docker. You can create a new volume explicitly using the ``docker volume create`` command, or Docker can create a volume in the container when the container is built. 
 
-When you run a container, you can bring a directory from the host system into the container, and give it a new name and location using the ``-v`` or ``--volume`` flag.
-
-.. code-block:: bash
-
-  $ docker run -v /home/username/your_data_folder:/data username/jupyter:latest
-  
-In the example above, you can mount a folder from your localhost, in your home user directory into the container as a new directory named ``/data``. 
-
-When you create a Docker volume, it is stored within a directory on the Docker Linux host (``/var/lib/docker/`` 
-
-.. Note::
-  File location on Mac OS X is a bit different. `see here<https://timonweb.com/posts/getting-path-and-accessing-persistent-volumes-in-docker-for-mac/>`_. 
-  
-A given volume can be mounted into multiple containers simultaneously. When no running container is using a volume, the volume is still available to Docker and is not removed automatically. You can remove unused volumes using ``docker volume prune`` command. 
-
 |volumes|
 
 Volumes are often a better choice than persisting data in a container’s writable layer, because using a volume does not increase the size of containers using it, and the volume’s contents exist outside the lifecycle of a given container. While bind mounts (which we will see later) are dependent on the directory structure of the host machine, volumes are completely managed by Docker. Volumes have several advantages over bind mounts:
@@ -452,21 +444,29 @@ Originally, the ``-v`` or ``--volume`` flag was used for standalone containers a
 3.2 Bind mounts
 ^^^^^^^^^^^^^^^
 
-``--mount``: Consists of multiple key-value pairs, separated by commas and each consisting of a ``<key>=<value>`` tuple. The ``--mount`` syntax is more verbose than ``-v`` or ``--volume``, but the order of the keys is not significant, and the value of the flag is easier to understand.
-- The type of the mount, which can be **bind**, **volume**, or **tmpfs**.
-- The source of the mount. For named volumes, this is the name of the volume. For anonymous volumes, this field is omitted. May be specified as **source** or **src**.
-- The destination takes as its value the path where the file or directory is mounted in the container. May be specified as **destination**, **dst**, or **target**.
-- The readonly option, if present, causes the bind mount to be mounted into the container as read-only.
+When you run a container, you can bring a directory from the host system into the container, and give it a new name and location using the ``-v`` or ``--volume`` flag.
 
-.. Note::
+.. code-block:: bash
 
-	The ``--mount`` and ``-v`` examples have the same end result.
+  $ mkdir -p ~/local-data-folder
+  $ echo "some data" >> ~/local-data-folder/data.txt
+  $ docker run -v ${HOME}/local-data-folder:/data $YOUR_DOCKERHUB_USERNAME/mynotebook:latest cat /data/data.txt
+  
+In the example above, you can mount a folder from your localhost, in your home user directory into the container as a new directory named ``/data``. 
+
 
 3.3 Create and manage volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Unlike a bind mount, you can create and manage volumes outside the scope of any container.
 
+A given volume can be mounted into multiple containers simultaneously. When no running container is using a volume, the volume is still available to Docker and is not removed automatically. You can remove unused volumes using ``docker volume prune`` command. 
+
+When you create a Docker volume, it is stored within a directory on the Docker Linux host (``/var/lib/docker/`` 
+
+.. Note::
+  File location on Mac OS X is a bit different: https://timonweb.com/posts/getting-path-and-accessing-persistent-volumes-in-docker-for-mac/
+  
 Let's create a volume
 
 .. code-block:: bash
@@ -502,15 +502,21 @@ Remove a volume
 .. code-block:: bash
 
 	$ docker volume rm my-vol
+	$ docker volume ls
+
 
 3.3.1 Populate a volume using a container
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This example starts an ``nginx`` container and populates the new volume ``nginx-vol`` with the contents of the container’s ``/var/log/nginx`` directory, which is where Nginx stores its log files.
+TODO!!! Change this below.
+
+This example starts an ``nginx`` container and populates the new volume ``jupyter-vol`` with the contents of the container’s ``/var/log/nginx`` directory, which is where Nginx stores its log files.
 
 .. code-block:: bash
 
-	$ docker run -d -p 8889:80 --name=jupytertest --mount source=jupyter-vol,target=/var/log/jupyter username/jupyter:latest
+	$ docker run -d -p 8889:80 --name=notebooktest --mount source=jupyter-vol,target=/var/log/jupyter $YOUR_DOCKERHUB_USERNAME/mynotebook:latest
+
+TODO!!! Change this below to something sensible.
 
 So, we now have a copy of Jupyter volume running inside a Docker container on our machine, and our host machine's port 5000 maps directly to that copy of Jupyter's port 80. Let's use curl to do a quick test request:
 
@@ -541,9 +547,9 @@ After running either of these examples, run the following commands to clean up t
 
 .. code-block:: bash
 
-	$ docker stop jupytertest
+	$ docker stop notebooktest
 
-	$ docker rm jupytertest
+	$ docker rm notebooktest
 
 	$ docker volume rm jupyter-vol
 
@@ -571,13 +577,13 @@ After running either of these examples, run the following commands to clean up t
 
 	$ mkdir data
 
-	$ docker run -p 8888:8888 --name jupytertest --mount type=bind,source="$(pwd)"/data,target=/var/log/jupyter username/jupyter:latest
+	$ docker run -p 8888:8888 --name notebooktest --mount type=bind,source="$(pwd)"/data,target=/var/log/jupyter $YOUR_DOCKERHUB_USERNAME/mynotebook:latest
 
-Use `docker inspect jupytertest` to verify that the bind mount was created correctly. Look for the "Mounts" section
+Use `docker inspect notebooktest` to verify that the bind mount was created correctly. Look for the "Mounts" section
 
 .. code-block::
 
-	$ docker inspect jupytertest
+	$ docker inspect notebooktest
 
 This shows that the mount is a bind mount, it shows the correct source and target, it shows that the mount is read-write, and that the propagation is set to rprivate.
 
@@ -596,21 +602,23 @@ This example modifies the one above but mounts the directory as a read-only bind
 
 .. code-block:: bash
 
-	$ docker run -d -p 8888:8888 --name jupytertest --mount type=bind,source="$(pwd)"/data,target=/var/log/jupyter,readonly username/jupyter:latest
+	$ docker run -d -p 8888:8888 --name notebooktest --mount type=bind,source="$(pwd)"/data,target=/var/log/jupyter,readonly $YOUR_DOCKERHUB_USERNAME/mynotebook:latest
 
-Use ``docker inspect jupytertest`` to verify that the bind mount was created correctly. Look for the Mounts section:
+Use ``docker inspect notebooktest`` to verify that the bind mount was created correctly. Look for the Mounts section:
 
 Stop the container:
 
 .. code-block:: bash
 
-	$ docker rm -f jupytertest
+	$ docker rm -f notebooktest
 
 Remove the volume:
 
+TODO!!! Check this below.
+
 .. code-block:: bash
 
-	$ docker volume rm jupytertest
+	$ docker volume rm notebooktest
 
 3.3 tmpfs Mounts
 ~~~~~~~~~~~~~~~~
@@ -623,13 +631,13 @@ Remove the volume:
 
 .. code-block:: bash
 
-	$ docker run -d -p 8888:8888 --name jupytertest --mount type=tmpfs,target=/var/log/jupyter username/jupyter:latest
+	$ docker run -d -p 8888:8888 --name notebooktest --mount type=tmpfs,target=/var/log/jupyter $YOUR_DOCKERHUB_USERNAME/mynotebook:latest
 
-Use `docker inspect jupytertest` to verify that the bind mount was created correctly. Look for the Mounts section:
+Use `docker inspect notebooktest` to verify that the bind mount was created correctly. Look for the Mounts section:
 
 .. code-block:: bash
 
-	$ docker inspect jupytertest
+	$ docker inspect notebooktest
 
 You can see from the above output that the ``Source`` filed is empty which indicates that the contents are not avaible on Docker host or host file system. 
 
@@ -637,13 +645,15 @@ Stop the container:
 
 .. code-block:: bash
 
-	$ docker rm -f jupytertest
+	$ docker rm -f notebooktest
+
+TODO!!! Test this below.
 
 Remove the volume:
 
 .. code-block:: bash
 
-	$ docker volume rm jupytertest
+	$ docker volume rm notebooktest
 
 4. Docker Compose for multi-container apps
 ==========================================
