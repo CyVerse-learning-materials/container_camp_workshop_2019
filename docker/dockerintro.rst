@@ -137,11 +137,11 @@ Before doing that, now it's time to see the ``docker ps`` command which shows yo
 	$ docker ps
 	CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 
-Since no containers are running, you see a blank line. Let's try a more useful variant: ``docker ps -a``
+Since no containers are running, you see a blank line. Let's try a more useful variant: ``docker ps --all``
 
 .. code-block:: bash
 
-	$ docker ps -a
+	$ docker ps --all
 	CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES
 	36171a5da744        alpine              "/bin/sh"                5 minutes ago       Exited (0) 2 minutes ago                        fervent_newton
 	a6a9d46d0b2f        alpine             "echo 'hello from alp"    6 minutes ago       Exited (0) 6 minutes ago                        lonely_kilby
@@ -172,13 +172,13 @@ Exit out of the container by giving the ``exit`` command.
 
 	If you type ``exit`` your **container** will exit and is no longer active. To check that, try the following::
 
-		$ docker ps -l
+		$ docker ps --latest
 		CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS                          PORTS                    NAMES
 		de4bbc3eeaec        alpine                "/bin/sh"                3 minutes ago       Exited (0) About a minute ago                            pensive_leavitt
 
-	If you want to keep the container active, then you can use keys ``ctrl +p, ctrl +q``. To make sure that it is not exited run the same ``docker ps -a`` command again::
+	If you want to keep the container active, then you can use keys ``ctrl +p, ctrl +q``. To make sure that it is not exited run the same ``docker ps --latest`` command again::
 
-		$ docker ps -l
+		$ docker ps --latest
 		CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS                         PORTS                    NAMES
 		0db38ea51a48        alpine                "sh"                     3 minutes ago       Up 3 minutes                                            elastic_lewin
 
@@ -216,9 +216,9 @@ Docker images are the basis of containers. In the previous example, you pulled t
 
 Above is a list of images that I've pulled from the registry and those I've created myself (we'll shortly see how). You will have a different list of images on your machine. The **TAG** refers to a particular snapshot of the image and the **ID** is the corresponding unique identifier for that image.
 
-For simplicity, you can think of an image akin to a git repository - images can be committed with changes and have multiple versions. When you do not provide a specific version number, the client defaults to latest.
+For simplicity, you can think of an image akin to a Git repository - images can be committed with changes and have multiple versions. When you do not provide a specific version number, the client defaults to latest.
 
-For example you could pull a specific version of ubuntu image as follows:
+For example you could pull a specific version of Ubuntu image as follows:
 
 .. code-block:: bash
 
@@ -288,14 +288,14 @@ Now that you have a better understanding of images, it's time to create an image
 
 1. Create a Python script which prints a welcome message
 
-Start by creating a directory called ``simple-script`` where we'll create the following files:
+Start by creating a directory called ``simple-script`` in your home directory where we'll create the following files:
 
 - ``app.py``
 - ``Dockerfile``
 
 .. code-block:: bash
 
-	$ mkdir simple-script && cd simple-script
+	$ cd ~ && mkdir simple-script && cd simple-script
 
 .. _app.py:
 
@@ -477,14 +477,14 @@ Let's deploy a Python function inside a Docker image along with Jupyter.
 
 1. Create a Python file containing a function
 
-Start by creating a directory called ``myfirstapp`` where we'll create the following files:
+Start by creating a directory called ``mynotebook`` in your home directory where we'll create the following files:
 
 - model.py
 - Dockerfile
 
 .. code-block:: bash
 
-	$ mkdir myfirstapp && cd myfirstapp
+	$ cd ~ && mkdir mynotebook && cd mynotebook
 
 .. _model.py:
 
@@ -511,7 +511,7 @@ Since we want to use a Jupyter notebook to call our function, we will build an i
 	https://jupyter-docker-stacks.readthedocs.io/en/latest/
 
 
-Create a file called Dockerfile in the ``myfirstapp`` directory, and add content to it as described below. 
+Create a file called Dockerfile in the ``mynotebook`` directory, and add content to it as described below. 
 
 .. code-block:: bash
 
@@ -576,7 +576,7 @@ Now build the image using the following command:
 
 .. code-block:: bash
 
-	$ docker build -t $YOUR_DOCKERHUB_USERNAME/myfirstapp .
+	$ docker build -t $YOUR_DOCKERHUB_USERNAME/mynotebook .
 	Sending build context to Docker daemon  3.072kB
 	Step 1/3 : FROM jupyter/minimal-notebook
 	 ---> 36c8dd0e1d8f
@@ -587,9 +587,9 @@ Now build the image using the following command:
 	Removing intermediate container 519dcabe4eb3
 	 ---> 7983fe164dc6
 	Successfully built 7983fe164dc6
-	Successfully tagged jpistorius/myfirstapp:latest
+	Successfully tagged jpistorius/mynotebook:latest
 
-If everything went well, your image should be ready! Run ``docker images`` and see if your image ``$YOUR_DOCKERHUB_USERNAME/myfirstapp`` shows.
+If everything went well, your image should be ready! Run ``docker images`` and see if your image ``$YOUR_DOCKERHUB_USERNAME/mynotebook`` shows.
 
 .. _Run your image:
 
@@ -599,7 +599,7 @@ When Docker can successfully build your Dockerfile, test it by starting a new co
 
 .. code-block:: bash
 
-	$ docker run -p 8888:8888 $YOUR_DOCKERHUB_USERNAME/myfirstapp
+	$ docker run -p 8888:8888 $YOUR_DOCKERHUB_USERNAME/mynotebook
 
 You should see something like this:
 
@@ -683,7 +683,7 @@ Use the following Docker commands to deploy Portainer. Now the second line of co
 
 .. Note:: 
 	
-	The `-v /var/run/docker.sock:/var/run/docker.sock` option can be used in mac/linux environments only.
+	The `-v /var/run/docker.sock:/var/run/docker.sock` option can be used in Mac/Linux environments only.
 
 |portainer_demo|
 
