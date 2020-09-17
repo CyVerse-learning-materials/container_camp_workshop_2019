@@ -1,3 +1,4 @@
+.. include:: cyverse_rst_defined_substitutions.txt
 |cc-main|
 
 **Container technologies** are letting researchers easily share, scale, and reuse tools and workflows for all types of computational analyses. CyVerse Container Camp is an intensive three day hands-on workshop to learn how to create, us, and deploy containers across a variety of compute systems (your computer, local HPC cloud compute environments, and national resources such as OSG). 
