@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Version 2.0, May 2020
 # -*- coding: utf-8 -*-
 #
 # General information about the project.
@@ -9,9 +10,11 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 from misc.cyverse_sphinx_conf import *  # noqa
 
-project = 'CyVerse Container Camp 2019'
-copyright = '2019, CyVerse'
-author = 'CyVerse'
+project = 'YOUR GUIDE NAME HERE'
+copyright = '2020, CyVerse'
+author = 'your_name'
+version = '2.0'
+release = '2.0'
 
 epub_title = project
 epub_author = author
